@@ -46,13 +46,13 @@ public class BankController {
     }
 
     private void transfer(TransferDTO input) {
-        Account source = accounts.get(input.getSourceAccountNumber());
-        Account destination = accounts.get(input.getDestinationAccountNumber());
+        Account source = accounts.get(input.sourceAccountNumber());
+        Account destination = accounts.get(input.destinationAccountNumber());
         if (source == null || destination == null) {
             OutputView.printErrorMessage("계좌 번호를 확인해주세요.");
             return;
         }
-        Transaction transaction = new Transaction(input.getAmount());
+        Transaction transaction = new Transaction(input.amount());
         if (transaction.process(source, destination)) {
             OutputView.printTransactionConfirmation("계좌 이체", source, destination);
         } else {
@@ -61,25 +61,25 @@ public class BankController {
     }
 
     private void deposit(DepositDTO input) {
-        Account account = accounts.get(input.getAccountNumber());
+        Account account = accounts.get(input.accountNumber());
         if (account == null) {
             OutputView.printErrorMessage("계좌 번호를 확인해주세요.");
             return;
         }
-        account.deposit(input.getAmount());
-        OutputView.printSuccessMessage("입금", input.getAmount());
+        account.deposit(input.amount());
+        OutputView.printSuccessMessage("입금", input.amount());
         OutputView.printAccountBalance(account.getOwner(), account.getAccountNumber(), account.getBalance());
     }
 
     private void withdraw(WithdrawDTO input) {
-        Account account = accounts.get(input.getAccountNumber());
+        Account account = accounts.get(input.accountNumber());
         if (account == null) {
             OutputView.printErrorMessage("계좌 번호를 확인해주세요.");
             return;
         }
         try {
-            account.withdraw(input.getAmount());
-            OutputView.printSuccessMessage("출금", input.getAmount());
+            account.withdraw(input.amount());
+            OutputView.printSuccessMessage("출금", input.amount());
             OutputView.printAccountBalance(account.getOwner(), account.getAccountNumber(), account.getBalance());
         } catch (IllegalArgumentException e) {
             if (e.getMessage().equals(IllegalArgumentExceptionType.INSUFFICIENT_BALANCE.getMessage())) {
