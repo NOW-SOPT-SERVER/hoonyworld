@@ -1,5 +1,8 @@
 package sopt.bank.view;
 
+import sopt.bank.view.dto.DepositDTO;
+import sopt.bank.view.dto.TransferDTO;
+import sopt.bank.view.dto.WithdrawDTO;
 import sopt.bank.view.viewConstant.IllegalArgumentExceptionType;
 
 import java.util.Scanner;
@@ -8,11 +11,15 @@ public class InputView {
     private static final Scanner kb = new Scanner(System.in);
 
     private InputView() {
-
     }
 
     // 메뉴를 받고, 1~3 숫자 검증
-    private static int readMenu() {
+    public static int readMenu() {
+        System.out.println("--- 메뉴를 선택하세요 ---");
+        System.out.println("1. 계좌이체");
+        System.out.println("2. 입금");
+        System.out.println("3. 출금");
+
         try {
             int menu = kb.nextInt();
 
@@ -27,7 +34,7 @@ public class InputView {
     }
 
     // 계좌번호를 받고 검증 메서드 호출
-    private static String readAccountNumber() {
+    public static String readAccountNumber() {
         try {
             String accountNumber = kb.next();
             validateAccountNumber(accountNumber);
@@ -59,7 +66,6 @@ public class InputView {
     // 금액을 입력받고 검증하는 메서드
     public static double readAmount() {
         try {
-//            System.out.println("금액을 입력하세요: ");
             double amount = kb.nextDouble();
 
             // 금액이 유효한지 확인 -> 추후 validate로 빼기
@@ -75,20 +81,35 @@ public class InputView {
         }
     }
 
+    // 계좌 이체 정보 입력받는 메서드
+    public static TransferDTO transferInput() {
+        System.out.println("이체할 계좌번호를 입력하세요: ");
+        String sourceAccountNumber = readAccountNumber();
+        System.out.println("이체할 금액을 입력하세요: ");
+        double amount = readAmount();
+        System.out.println("상대방 계좌번호를 입력하세요: ");
+        String destinationAccountNumber = readAccountNumber();
 
+        return new TransferDTO(sourceAccountNumber, destinationAccountNumber, amount);
+    }
 
+    // 입금 정보 입력받는 메서드
+    public static DepositDTO depositInput() {
+        System.out.println("입금할 계좌번호를 입력하세요: ");
+        String accountNumber = readAccountNumber();
+        System.out.println("입금할 금액을 입력하세요: ");
+        double amount = readAmount();
+
+        return new DepositDTO(accountNumber, amount);
+    }
+
+    // 출금 정보 입력받는 메서드
+    public static WithdrawDTO withdrawInput() {
+        System.out.println("출금할 계좌번호를 입력하세요: ");
+        String accountNumber = readAccountNumber();
+        System.out.println("출금할 금액을 입력하세요: ");
+        double amount = readAmount();
+
+        return new WithdrawDTO(accountNumber, amount);
+    }
 }
-
-/*
-계좌 이체, 입금, 출금
-
-계좌 이체 : 계좌번호, 이체액, 비밀번호 입력
-입금 : 계좌번호, 입금액, 비밀번호 입력
-출금 : 계좌번호, 출금액, 비밀번호 입력
-
-
-계좌 이체를 진행하는 경우에는 콘솔창에 계좌 이체 를 입력하고
-이체하고자 하는 상대방 계좌번호와 금액을 입력하여 이에 대한 상호작용을 구현하고
-그 결과값(남은 금액)을 다시 콘솔창에 띄우는 방식으로 구현하면 됩니다.
-
- */
