@@ -28,4 +28,12 @@ public class Account {
     public double getBalance() {
         return balance;
     }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
 }
