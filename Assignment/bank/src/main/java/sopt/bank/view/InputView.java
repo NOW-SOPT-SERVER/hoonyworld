@@ -28,9 +28,14 @@ public class InputView {
 
     // 계좌번호를 받고 검증 메서드 호출
     private static String readAccountNumber() {
-        String accountNumber = kb.next();
-        validateAccountNumber(accountNumber);
-        return accountNumber;
+        try {
+            String accountNumber = kb.next();
+            validateAccountNumber(accountNumber);
+            return accountNumber;
+        } catch (IllegalArgumentException e) {
+            System.out.println(IllegalArgumentExceptionType.INVALID_ACCOUNT_NUMBER.getMessage());
+            return readAccountNumber();
+        }
     }
 
     // 계좌번호 숫자인지 검증, 계좌번호 길이 검증(14자리)
@@ -39,7 +44,7 @@ public class InputView {
         int totalLength = 0;
         for (String part : temporary) {
             if (!part.matches("[0-9]+")) {
-                throw IllegalArgumentExceptionType.INVALID_ACCOUNT_NUMBER.getException(); // 숫자가 아닌 문자가 포함되어 있음
+                throw IllegalArgumentExceptionType.ONLY_ACCOUNT_NUMBER_DIGIT.getException(); // 숫자가 아닌 문자가 포함되어 있음
             }
             totalLength += part.length();
         }
@@ -51,7 +56,27 @@ public class InputView {
         }
     }
 
-    //
+    // 금액을 입력받고 검증하는 메서드
+    public static double readAmount() {
+        try {
+//            System.out.println("금액을 입력하세요: ");
+            double amount = kb.nextDouble();
+
+            // 금액이 유효한지 확인 -> 추후 validate로 빼기
+            if (amount <= 0) {
+                throw IllegalArgumentExceptionType.ONLY_AMOUNT_POSITIVE_NUMBER.getException();
+            }
+
+            return amount;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println(IllegalArgumentExceptionType.INVALID_AMOUNT.getMessage());
+            return readAmount();
+        }
+    }
+
+
+
 }
 
 /*
