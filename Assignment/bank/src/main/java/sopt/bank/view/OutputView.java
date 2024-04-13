@@ -12,7 +12,7 @@ public class OutputView {
     }
 
     public static void printSuccessMessage(String operation, double amount) {
-        System.out.printf("%s가 성공적으로 완료되었습니다. 금액: %,d원\n", operation, (long)amount);
+        System.out.printf("%s이 성공적으로 완료되었습니다. 금액: %,d원\n", operation, (long)amount);
     }
 
     public static void printAccountBalance(String accountOwner, String accountNumber, double balance) {
@@ -24,7 +24,7 @@ public class OutputView {
     }
 
     public static void printTransactionConfirmation(String operation, Account sourceAccount, Account destinationAccount) {
-        printMessage(operation + "이(가) 완료되었습니다.");
+        printMessage(operation + "가 완료되었습니다.");
         if (sourceAccount != null) {
             printAccountBalance(sourceAccount.getOwner(), sourceAccount.getAccountNumber(), sourceAccount.getBalance());
         }
