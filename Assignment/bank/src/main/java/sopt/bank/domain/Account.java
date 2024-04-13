@@ -1,6 +1,6 @@
 package sopt.bank.domain;
 
-import sopt.bank.view.viewConstant.IllegalArgumentExceptionType;
+import sopt.bank.view.exception.IllegalArgumentExceptionType;
 
 public class Account {
     private String accountNumber;

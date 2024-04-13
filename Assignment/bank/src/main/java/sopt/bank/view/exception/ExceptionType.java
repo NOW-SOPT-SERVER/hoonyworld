@@ -1,4 +1,4 @@
-package sopt.bank.view.viewConstant;
+package sopt.bank.view.exception;
 
 public interface ExceptionType<T> {
     String getMessage();

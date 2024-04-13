@@ -7,7 +7,7 @@ import sopt.bank.view.OutputView;
 import sopt.bank.view.dto.DepositDTO;
 import sopt.bank.view.dto.TransferDTO;
 import sopt.bank.view.dto.WithdrawDTO;
-import sopt.bank.view.viewConstant.IllegalArgumentExceptionType;
+import sopt.bank.view.exception.IllegalArgumentExceptionType;
 
 import java.util.HashMap;
 import java.util.Map;
