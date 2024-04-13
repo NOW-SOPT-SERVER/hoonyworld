@@ -25,20 +25,19 @@ public class BankController {
         try {
             int menu = InputView.readMenu();
             switch (menu) {
-                case 1:
+                case 1 -> {
                     TransferDTO transferDTO = InputView.transferInput();
                     transfer(transferDTO);
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     DepositDTO depositDTO = InputView.depositInput();
                     deposit(depositDTO);
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     WithdrawDTO withdrawDTO = InputView.withdrawInput();
                     withdraw(withdrawDTO);
-                    break;
-                default:
-                    OutputView.printErrorMessage("잘못된 선택입니다. 다시 시도해주세요.");
+                }
+                default -> OutputView.printErrorMessage("잘못된 선택입니다. 다시 시도해주세요.");
             }
         } catch (Exception e) {
             OutputView.printErrorMessage("작업 수행 중 오류가 발생했습니다: " + e.getMessage());
