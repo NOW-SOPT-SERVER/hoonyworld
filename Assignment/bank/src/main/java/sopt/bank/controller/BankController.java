@@ -45,10 +45,9 @@ public class BankController {
     }
 
     private void transfer(TransferDTO input) {
-        Account source = accounts.get(input.sourceAccountNumber());
-        Account destination = accounts.get(input.destinationAccountNumber());
+        Account source = getAccount(input.sourceAccountNumber());
+        Account destination = getAccount(input.destinationAccountNumber());
         if (source == null || destination == null) {
-            OutputView.printErrorMessage("계좌 번호를 확인해주세요.");
             return;
         }
         Transaction transaction = new Transaction(input.amount());
@@ -60,9 +59,8 @@ public class BankController {
     }
 
     private void deposit(DepositDTO input) {
-        Account account = accounts.get(input.accountNumber());
+        Account account = getAccount(input.accountNumber());
         if (account == null) {
-            OutputView.printErrorMessage("계좌 번호를 확인해주세요.");
             return;
         }
         account.deposit(input.amount());
@@ -71,9 +69,8 @@ public class BankController {
     }
 
     private void withdraw(WithdrawDTO input) {
-        Account account = accounts.get(input.accountNumber());
+        Account account = getAccount(input.accountNumber());
         if (account == null) {
-            OutputView.printErrorMessage("계좌 번호를 확인해주세요.");
             return;
         }
         try {
@@ -87,5 +84,14 @@ public class BankController {
                 OutputView.printErrorMessage("출금 실패");
             }
         }
+    }
+
+    // 계좌 조회 로직을 별도의 메서드로 분리
+    private Account getAccount(String accountNumber) {
+        Account account = accounts.get(accountNumber);
+        if (account == null) {
+            OutputView.printErrorMessage("계좌 번호를 확인해주세요.");
+        }
+        return account;
     }
 }
