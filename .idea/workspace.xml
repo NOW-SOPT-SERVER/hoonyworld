@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9db4d562-379a-4c25-be89-aaacf99bc835" name="변경" comment="fix: bug 해결용 커밋">
-      <change afterPath="$PROJECT_DIR$/Assignment/bank/src/main/java/sopt/bank/domain/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="1821bb7d-0c81-474d-a72d-0b013567fb49" name="변경" comment="fix: bug 해결용 커밋" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$/Seminar/week1-1">
-      <ProjectState />
-    </projectState>
-    <projectState path="$PROJECT_DIR$/Seminar/week1-2">
-      <ProjectState />
-    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -44,12 +34,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;hoonyworld&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "hoonyworld"
   }
-}</component>
+}]]></component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -61,11 +51,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1713163514" />
+                    <option name="lastUsedInstant" value="1713163938" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="hoonyworld_1" />
-                    <option name="lastUsedInstant" value="1712739150" />
+                    <option name="lastUsedInstant" value="1713163937" />
                   </RecentBranch>
                 </list>
               </option>
@@ -76,43 +66,29 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/NOW-SOPT-SERVER/hoonyworld.git&quot;,
-    &quot;accountId&quot;: &quot;bc8067f5-7071-4ee0-a8c3-d64a9ed666ad&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/NOW-SOPT-SERVER/hoonyworld.git",
+    "accountId": "bc8067f5-7071-4ee0-a8c3-d64a9ed666ad"
   }
-}</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="2eaOrQCp582BjbEkDYAbhOwMtOD" />
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2f7tJmQmvalL7shzNfRzEUoUPaG" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Seminar" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="hoonyworld" />
@@ -139,33 +115,60 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="9db4d562-379a-4c25-be89-aaacf99bc835" name="변경" comment="" />
-      <created>1712139420487</created>
+      <changelist id="1821bb7d-0c81-474d-a72d-0b013567fb49" name="변경" comment="fix: bug 해결용 커밋" />
+      <created>1713163875047</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712139420487</updated>
-      <workItem from="1712139422582" duration="1151000" />
-      <workItem from="1712734189595" duration="796000" />
-      <workItem from="1712738178619" duration="25000" />
-      <workItem from="1712738335996" duration="1239000" />
-      <workItem from="1713163409093" duration="141000" />
+      <updated>1713163875047</updated>
+      <workItem from="1713163876102" duration="151000" />
     </task>
-    <task id="LOCAL-00001" summary="refactor: 상위 폴더 추가">
+    <task id="LOCAL-00001" summary="fix: bug 해결용 커밋">
       <option name="closed" value="true" />
-      <created>1712139538634</created>
+      <created>1713163884827</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1712139538634</updated>
+      <updated>1713163884827</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix: bug 해결용 커밋">
+      <option name="closed" value="true" />
+      <created>1713163891323</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713163891323</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix: bug 해결용 커밋">
+      <option name="closed" value="true" />
+      <created>1713163899784</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713163899784</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix: bug 해결용 커밋">
+      <option name="closed" value="true" />
+      <created>1713163932613</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713163932613</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix: bug 해결용 커밋">
+      <option name="closed" value="true" />
+      <created>1713163947930</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713163947930</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor: 상위 폴더 추가" />
     <MESSAGE value="fix: bug 해결용 커밋" />
     <option name="LAST_COMMIT_MESSAGE" value="fix: bug 해결용 커밋" />
   </component>
