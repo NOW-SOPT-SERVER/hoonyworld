@@ -1,0 +1,16 @@
+
+f
+java:S1854!"KRemove this useless assignment to local variable "personWithFactoryMethod".(ˆ¤ÿÿÿÿÿ
+`
+java:S1854"ERemove this useless assignment to local variable "personWithBuilder".(ş¯†¬úÿÿÿÿ
+P
+java:S1854"5Remove this useless assignment to local variable "p".(Éé°Çşÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(Ï×¹£øÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(İç±Õ
+E	java:S106"+Replace this use of System.out by a logger.(Ï×¹£øÿÿÿÿ
+A
+java:S1481"&Remove this unused "p" local variable.(Éé°Çşÿÿÿÿ
+Q
+java:S1481"6Remove this unused "personWithBuilder" local variable.(ş¯†¬úÿÿÿÿ
+W
+java:S1481!"<Remove this unused "personWithFactoryMethod" local variable.(ˆ¤ÿÿÿÿÿ
