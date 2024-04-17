@@ -27,4 +27,13 @@ public class MemberService {
                 () -> new EntityNotFoundException("ID에 해당하는 사용자가 존재하지 않습니다.")
         ));
     }
+
+    @Transactional
+    public void deleteMemberById(
+            Long memberId
+    ) {
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(() -> new EntityNotFoundException("ID에 해당하는 사용자가 존재하지 않습니다."));
+        memberRepository.delete(member);
+    }
 }
