@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1629ff12-83be-41db-be4b-b7fe9257e7ef" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/bank/src/main/java/sopt/bank/domain/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="1629ff12-83be-41db-be4b-b7fe9257e7ef" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,12 +13,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "hoonyworld"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hoonyworld&quot;
   }
-}]]></component>
+}</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -47,15 +45,15 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/NOW-SOPT-SERVER/hoonyworld.git",
-    "accountId": "bc8067f5-7071-4ee0-a8c3-d64a9ed666ad"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NOW-SOPT-SERVER/hoonyworld.git&quot;,
+    &quot;accountId&quot;: &quot;bc8067f5-7071-4ee0-a8c3-d64a9ed666ad&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2f7sqbXwSl3O0KEKHvUeXSeUgyZ" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -63,7 +61,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "hoonyworld__1",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "SDK",
@@ -90,6 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713163642467</updated>
       <workItem from="1713163643817" duration="122000" />
+      <workItem from="1713197643327" duration="2000" />
     </task>
     <servers />
   </component>
