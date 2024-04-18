@@ -22,7 +22,7 @@ public class MemberController {
     }
 
     @GetMapping("/{memberId}")
-    public ResponseEntity<MemberFindDto> findMemberById(
+    public ResponseEntity<MemberFindDto> getMemberById(
             @PathVariable("memberId") Long memberId
     ) {
         return ResponseEntity.ok(memberService.findMemberById(memberId));
@@ -37,7 +37,7 @@ public class MemberController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<MemberFindDto>> findAllMembers() {
+    public ResponseEntity<List<MemberFindDto>> getAllMembers() {
         return ResponseEntity.ok(memberService.findAllMembers());
     }
 }
