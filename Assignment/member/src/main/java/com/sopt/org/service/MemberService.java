@@ -40,8 +40,6 @@ public class MemberService {
     }
 
     public List<MemberFindDto> findAllMembers() {
-        return memberRepository.findAll().stream()
-                .map(MemberFindDto::of)
-                .toList(); // 변경 불가능한 리스트 반환
+        return MemberFindDto.listOf(memberRepository.findAll());
     }
 }
