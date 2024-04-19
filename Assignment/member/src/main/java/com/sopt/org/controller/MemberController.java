@@ -12,24 +12,24 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/member")
+@RequestMapping("/api/v1")
 public class MemberController {
     private final MemberService memberService;
 
-    @PostMapping
-    public ResponseEntity createMember(@RequestBody MemberCreateDto memberCreateDto) {
+    @PostMapping("/member")
+    public ResponseEntity<Void> createMember(@RequestBody MemberCreateDto memberCreateDto) {
         return ResponseEntity.created(URI.create(memberService.createMember(memberCreateDto))).build();
     }
 
-    @GetMapping("/{memberId}")
+    @GetMapping("/member/{memberId}")
     public ResponseEntity<MemberFindDto> getMemberById(
             @PathVariable("memberId") Long memberId
     ) {
         return ResponseEntity.ok(memberService.findMemberById(memberId));
     }
 
-    @DeleteMapping("/{memberId}")
-    public ResponseEntity deleteMemberById(
+    @DeleteMapping("/member/{memberId}")
+    public ResponseEntity<Void> deleteMemberById(
             @PathVariable("memberId") Long memberId
     ) {
         memberService.deleteMemberById(memberId);
