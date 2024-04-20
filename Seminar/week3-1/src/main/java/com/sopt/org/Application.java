@@ -1,13 +1,13 @@
-package com.sopt.org.week31;
+package com.sopt.org;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Week31Application {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Week31Application.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
