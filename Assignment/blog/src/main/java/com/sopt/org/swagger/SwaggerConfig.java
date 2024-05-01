@@ -12,8 +12,8 @@ public class SwaggerConfig {
     public OpenAPI openAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Member Project API")
-                        .description("멤버를 생성하고, 찾고, 삭제하는 기능을 제공합니다")
+                        .title("Blog Project API")
+                        .description("멤버를 등록하고 멤버 별 블로그를 관리하고 블로그 별 글을 관리하는 기능을 제공합니다")
                         .version("1.0.0"));
     }
 }
