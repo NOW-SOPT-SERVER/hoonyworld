@@ -32,7 +32,7 @@ public class Blog extends BaseTimeEntity{
     }
 
     @Builder
-    public Blog(Member member, String title, String description) {
+    private Blog(final Member member, final String title, final String description) {
         this.member = member;
         this.title = title;
         this.description = description;

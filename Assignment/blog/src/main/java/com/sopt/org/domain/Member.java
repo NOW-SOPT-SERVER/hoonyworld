@@ -21,7 +21,7 @@ public class Member {
     private int age;
 
 
-    public static Member create(String name, Part part, int age) {
+    public static Member create(final String name, final Part part, final int age) {
         return Member.builder()
                 .name(name)
                 .part(part)
@@ -30,7 +30,7 @@ public class Member {
     }
 
     @Builder
-    public Member(String name, Part part, int age) {
+    public Member(final String name, final Part part, final int age) {
         this.name = name;
         this.part = part;
         this.age = age;
