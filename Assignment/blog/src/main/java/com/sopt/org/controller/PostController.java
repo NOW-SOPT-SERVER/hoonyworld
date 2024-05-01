@@ -37,7 +37,7 @@ public class PostController {
         return ResponseEntity.ok(post);
     }
 
-    @PatchMapping("/blog/{b logId}/post/{postId}")
+    @PatchMapping("/blog/{blogId}/post/{postId}")
     public ResponseEntity updatePostContent(
             @PathVariable Long blogId,
             @PathVariable Long postId,
