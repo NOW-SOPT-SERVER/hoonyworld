@@ -27,7 +27,7 @@ public class MemberService {
             Long memberId
     ) {
         return MemberFindDto.of(memberRepository.findById(memberId).orElseThrow(
-                () -> new EntityNotFoundException("ID에 해당하는 사용자가 존재하지 않습니다.")
+                () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION)
         ));
     }
 
@@ -35,8 +35,9 @@ public class MemberService {
     public void deleteMemberById(
             Long memberId
     ) {
-        Member member = memberRepository.findById(memberId)
-                .orElseThrow(() -> new EntityNotFoundException("ID에 해당하는 사용자가 존재하지 않습니다."));
+        Member member = memberRepository.findById(memberId).orElseThrow(
+                () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION)
+        );
         memberRepository.delete(member);
     }
 
