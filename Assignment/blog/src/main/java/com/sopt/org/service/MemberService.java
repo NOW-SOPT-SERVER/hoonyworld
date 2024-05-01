@@ -6,7 +6,6 @@ import com.sopt.org.exception.message.ErrorMessage;
 import com.sopt.org.repository.MemberRepository;
 import com.sopt.org.service.dto.MemberCreateDto;
 import com.sopt.org.service.dto.MemberFindDto;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,7 @@ public class MemberService {
     public MemberFindDto findMemberById(
             Long memberId
     ) {
-        return MemberFindDto.of(memberRepository.findById(memberId).orElseThrow(
+        return MemberFindDto.from(memberRepository.findById(memberId).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION)
         ));
     }
