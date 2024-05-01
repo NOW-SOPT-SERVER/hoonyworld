@@ -21,7 +21,7 @@ public class BlogController {
     @PostMapping("/blog")
     public ResponseEntity<SuccessStatusResponse> createBlog(
             @RequestHeader Long memberId,
-            @RequestBody BlogCreateRequest blogCreateRequest) {
+            @Valid @RequestBody BlogCreateRequest blogCreateRequest) {
         return ResponseEntity.status(HttpStatus.CREATED).header(
                         "Location",
                         blogService.create(memberId, blogCreateRequest))
