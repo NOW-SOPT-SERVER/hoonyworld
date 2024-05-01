@@ -10,7 +10,7 @@ public record MemberFindDto(
         int age
 ) {
 
-    public static MemberFindDto of(
+    public static MemberFindDto from(
             Member member
     ) {
         return new MemberFindDto(member.getName(), member.getPart(), member.getAge());
@@ -20,7 +20,7 @@ public record MemberFindDto(
             List<Member> members
     ) {
         return members.stream()
-                .map(MemberFindDto::of)
+                .map(MemberFindDto::from)
                 .toList();
     }
 }
