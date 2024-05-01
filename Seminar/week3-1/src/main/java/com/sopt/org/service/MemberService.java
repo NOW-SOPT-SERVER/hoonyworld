@@ -41,4 +41,10 @@ public class MemberService {
     public List<MemberFindDto> findAllMembers() {
         return MemberFindDto.listOf(memberRepository.findAll());
     }
+
+    public Member findById(Long memberId) {
+        return memberRepository.findById(memberId).orElseThrow(
+                () -> new EntityNotFoundException("ID에 해당하는 사용자가 존재하지 않습니다.")
+        );
+    }
 }
