@@ -5,7 +5,8 @@ import com.sopt.org.domain.Post;
 import com.sopt.org.service.PostService;
 import com.sopt.org.service.dto.PostCreateRequest;
 import com.sopt.org.common.dto.SuccessStatusResponse;
-import com.sopt.org.service.dto.PostUpdateRequest;
+import com.sopt.org.service.dto.PostContentUpdateRequest;
+import com.sopt.org.service.dto.PostFindDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,26 +24,27 @@ public class PostController {
     public ResponseEntity<SuccessStatusResponse> createPost(
             @PathVariable Long blogId,
             @Valid @RequestBody PostCreateRequest postCreateRequest) {
-        String postId = postService.create(blogId, postCreateRequest);
+        String postId = postService.createPost(blogId, postCreateRequest);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .header("Location", "/api/v1/blog/" + blogId + "/post/" + postId)
                 .body(SuccessStatusResponse.of(SuccessMessage.POST_CREATE_SUCCESS));
     }
 
     @GetMapping("/blog/{blogId}/post/{postId}")
-    public ResponseEntity getPost(
+    public ResponseEntity<PostFindDto> getPost(
             @PathVariable Long blogId,
-            @Valid @PathVariable Long postId) {
+            @PathVariable Long postId) {
         Post post = postService.findPostById(postId);
-        return ResponseEntity.ok(post);
+        PostFindDto postFindDto = PostFindDto.from(post);
+        return ResponseEntity.ok(postFindDto);
     }
 
     @PatchMapping("/blog/{blogId}/post/{postId}")
     public ResponseEntity updatePostContent(
-            @PathVariable Long blogId,
+            @RequestHeader Long blogId,
             @PathVariable Long postId,
-            @Valid @RequestBody PostUpdateRequest postUpdateRequest) {
-        postService.updateContent(postId, postUpdateRequest);
+            @Valid @RequestBody PostContentUpdateRequest postContentUpdateRequest) {
+        postService.updateContent(postId, postContentUpdateRequest);
         return ResponseEntity.ok().body(SuccessMessage.POST_UPDATE_SUCCESS);
     }
 }
