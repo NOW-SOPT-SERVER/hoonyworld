@@ -2,6 +2,7 @@ package com.sopt.org.controller;
 
 import com.sopt.org.common.dto.SuccessMessage;
 import com.sopt.org.common.dto.SuccessStatusResponse;
+import com.sopt.org.service.BlogService;
 import com.sopt.org.service.dto.BlogCreateRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
