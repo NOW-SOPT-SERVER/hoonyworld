@@ -37,4 +37,8 @@ public class Blog extends BaseTimeEntity{
         this.title = title;
         this.description = description;
     }
+
+    public void updateTitle(String title) {
+        this.title = title;
+    }
 }
