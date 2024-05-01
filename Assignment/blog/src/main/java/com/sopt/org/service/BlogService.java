@@ -30,7 +30,7 @@ public class BlogService {
         blog.updateTitle(blogTitleUpdateRequest.title());
     }
 
-    private Blog findBlogById(Long blogId) {
+    public Blog findBlogById(Long blogId) {
         return blogRepository.findById(blogId)
                 .orElseThrow(() -> new NotFoundException(ErrorMessage.BLOG_NOT_FOUND));
     }
