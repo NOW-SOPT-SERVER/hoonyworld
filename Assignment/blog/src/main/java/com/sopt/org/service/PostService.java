@@ -6,7 +6,7 @@ import com.sopt.org.exception.NotFoundException;
 import com.sopt.org.exception.message.ErrorMessage;
 import com.sopt.org.repository.PostRepository;
 import com.sopt.org.service.dto.PostCreateRequest;
-import com.sopt.org.service.dto.PostUpdateRequest;
+import com.sopt.org.service.dto.PostContentUpdateRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class PostService {
     private final PostRepository postRepository;
     private final BlogService blogService;
 
-    public String create(Long blogId, PostCreateRequest postCreateRequest) {
+    public String createPost(Long blogId, PostCreateRequest postCreateRequest) {
         Blog blog = blogService.findBlogById(blogId);
         Post post = Post.create(postCreateRequest, blog);
         postRepository.save(post);
@@ -26,13 +26,14 @@ public class PostService {
     }
 
     @Transactional
-    public void updateContent(Long postId, PostUpdateRequest postUpdateRequest) {
-        Post post = findPostById(postId);
-        post.updateContent(postUpdateRequest.content());
+    public void updateContent(Long postId, PostContentUpdateRequest postContentUpdateRequest) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new NotFoundException(ErrorMessage.POST_NOT_FOUND_BY_ID_EXCEPTION));
+        post.setContent(postContentUpdateRequest.content());
     }
 
     public Post findPostById(Long postId) {
         return postRepository.findById(postId)
-                .orElseThrow(() -> new NotFoundException(ErrorMessage.POST_NOT_FOUND));
+                .orElseThrow(() -> new NotFoundException(ErrorMessage.POST_NOT_FOUND_BY_ID_EXCEPTION));
     }
 }
