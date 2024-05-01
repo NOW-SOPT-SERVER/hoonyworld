@@ -18,4 +18,3 @@ public class SwaggerConfig {
     }
 }
 
-// 등록한 모든 멤버가 List로 반환되는 API를 구현해주세요.
