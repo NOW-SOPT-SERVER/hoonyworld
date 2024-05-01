@@ -5,6 +5,7 @@ import com.sopt.org.common.dto.SuccessStatusResponse;
 import com.sopt.org.service.BlogService;
 import com.sopt.org.service.dto.BlogCreateRequest;
 import com.sopt.org.service.dto.BlogTitleUpdateRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class BlogController {
     @PatchMapping("/blog/{blogId}/title")
     public ResponseEntity updateBlogTitle(
             @PathVariable Long blogId,
-            @RequestBody BlogTitleUpdateRequest blogTitleUpdateRequest
+            @Valid @RequestBody BlogTitleUpdateRequest blogTitleUpdateRequest
     ) {
         blogService.updateTitle(blogId, blogTitleUpdateRequest);
         return ResponseEntity.noContent().build();
