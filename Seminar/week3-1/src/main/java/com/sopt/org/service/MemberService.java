@@ -1,6 +1,8 @@
 package com.sopt.org.service;
 
 import com.sopt.org.domain.Member;
+import com.sopt.org.exception.NotFoundException;
+import com.sopt.org.exception.message.ErrorMessage;
 import com.sopt.org.repository.MemberRepository;
 import com.sopt.org.service.dto.MemberCreateDto;
 import com.sopt.org.service.dto.MemberFindDto;
@@ -44,7 +46,7 @@ public class MemberService {
 
     public Member findById(Long memberId) {
         return memberRepository.findById(memberId).orElseThrow(
-                () -> new EntityNotFoundException("ID에 해당하는 사용자가 존재하지 않습니다.")
+                () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION)
         );
     }
 }
