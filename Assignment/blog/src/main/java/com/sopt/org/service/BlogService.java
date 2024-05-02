@@ -3,7 +3,7 @@ package com.sopt.org.service;
 import com.sopt.org.domain.Blog;
 import com.sopt.org.domain.Member;
 import com.sopt.org.exception.NotFoundException;
-import com.sopt.org.exception.message.ErrorMessage;
+import com.sopt.org.common.dto.message.ErrorMessage;
 import com.sopt.org.repository.BlogRepository;
 import com.sopt.org.service.dto.BlogCreateRequest;
 import com.sopt.org.service.dto.BlogTitleUpdateRequest;
@@ -32,6 +32,6 @@ public class BlogService {
 
     public Blog findBlogById(Long blogId) {
         return blogRepository.findById(blogId)
-                .orElseThrow(() -> new NotFoundException(ErrorMessage.BLOG_NOT_FOUND));
+                .orElseThrow(() -> new NotFoundException(ErrorMessage.BLOG_NOT_FOUND_BY_ID_EXCEPTION));
     }
 }

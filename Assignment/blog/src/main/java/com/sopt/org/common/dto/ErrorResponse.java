@@ -1,6 +1,6 @@
 package com.sopt.org.common.dto;
 
-import com.sopt.org.exception.message.ErrorMessage;
+import com.sopt.org.common.dto.message.ErrorMessage;
 
 public record ErrorResponse(
         int status,

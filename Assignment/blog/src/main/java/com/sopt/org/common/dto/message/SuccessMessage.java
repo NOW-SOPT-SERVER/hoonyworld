@@ -1,4 +1,4 @@
-package com.sopt.org.common.dto;
+package com.sopt.org.common.dto.message;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

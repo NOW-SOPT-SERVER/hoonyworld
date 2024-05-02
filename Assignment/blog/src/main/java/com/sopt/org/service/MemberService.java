@@ -2,7 +2,7 @@ package com.sopt.org.service;
 
 import com.sopt.org.domain.Member;
 import com.sopt.org.exception.NotFoundException;
-import com.sopt.org.exception.message.ErrorMessage;
+import com.sopt.org.common.dto.message.ErrorMessage;
 import com.sopt.org.repository.MemberRepository;
 import com.sopt.org.service.dto.MemberCreateDto;
 import com.sopt.org.service.dto.MemberFindDto;
