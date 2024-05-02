@@ -1,6 +1,6 @@
 package com.sopt.org.domain;
 
-import com.sopt.org.service.dto.PostCreateRequest;
+import com.sopt.org.service.dto.PostCreateRequestDto;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,10 +22,10 @@ public class Post extends BaseTimeEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     private Blog blog;
 
-    public static Post create(final PostCreateRequest postCreateRequest, final Blog blog) {
+    public static Post create(final PostCreateRequestDto postCreateRequestDto, final Blog blog) {
         return Post.builder()
-                .title(postCreateRequest.title())
-                .content(postCreateRequest.content())
+                .title(postCreateRequestDto.title())
+                .content(postCreateRequestDto.content())
                 .blog(blog)
                 .build();
     }

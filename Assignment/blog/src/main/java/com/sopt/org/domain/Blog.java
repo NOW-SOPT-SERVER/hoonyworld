@@ -1,6 +1,6 @@
 package com.sopt.org.domain;
 
-import com.sopt.org.service.dto.BlogCreateRequest;
+import com.sopt.org.service.dto.BlogCreateRequestDto;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,11 +24,11 @@ public class Blog extends BaseTimeEntity{
 
     private String description;
 
-    public static Blog create(final Member member, final BlogCreateRequest blogCreateRequest) {
+    public static Blog create(final Member member, final BlogCreateRequestDto blogCreateRequestDto) {
         return Blog.builder()
                 .member(member)
-                .title(blogCreateRequest.title())
-                .description(blogCreateRequest.description())
+                .title(blogCreateRequestDto.title())
+                .description(blogCreateRequestDto.description())
                 .build();
     }
 

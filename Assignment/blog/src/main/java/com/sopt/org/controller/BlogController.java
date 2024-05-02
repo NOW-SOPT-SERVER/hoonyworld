@@ -3,9 +3,9 @@ package com.sopt.org.controller;
 import com.sopt.org.common.dto.message.SuccessMessage;
 import com.sopt.org.common.dto.SuccessStatusResponse;
 import com.sopt.org.service.BlogService;
-import com.sopt.org.service.dto.BlogCreateRequest;
+import com.sopt.org.service.dto.BlogCreateRequestDto;
 import com.sopt.org.service.dto.BlogFindDto;
-import com.sopt.org.service.dto.BlogTitleUpdateRequest;
+import com.sopt.org.service.dto.BlogTitleUpdateRequestDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,10 +22,10 @@ public class BlogController {
     @PostMapping("/blog")
     public ResponseEntity<SuccessStatusResponse> createBlog(
             @RequestHeader Long memberId,
-            @Valid @RequestBody BlogCreateRequest blogCreateRequest) {
+            @Valid @RequestBody BlogCreateRequestDto blogCreateRequestDto) {
         return ResponseEntity.status(HttpStatus.CREATED).header(
                         "Location",
-                        blogService.createBlog(memberId, blogCreateRequest))
+                        blogService.createBlog(memberId, blogCreateRequestDto))
                 .body(SuccessStatusResponse.of(SuccessMessage.BLOG_CREATE_SUCCESS));
     }
 
@@ -38,9 +38,9 @@ public class BlogController {
     @PatchMapping("/blog/{blogId}/title")
     public ResponseEntity<SuccessStatusResponse> updateBlogTitle(
             @PathVariable Long blogId,
-            @Valid @RequestBody BlogTitleUpdateRequest blogTitleUpdateRequest // 블로그 글이 5
+            @Valid @RequestBody BlogTitleUpdateRequestDto blogTitleUpdateRequestDto // 블로그 글이 5
     ) {
-        blogService.updateBlogTitle(blogId, blogTitleUpdateRequest);
+        blogService.updateBlogTitle(blogId, blogTitleUpdateRequestDto);
         return ResponseEntity.ok()
                 .body(SuccessStatusResponse.of(SuccessMessage.BLOG_TITLE_UPDATE_SUCCESS));
     }

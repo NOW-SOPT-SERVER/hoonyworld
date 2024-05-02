@@ -1,6 +1,6 @@
 package com.sopt.org.service.dto;
 
-public record BlogCreateRequest(
+public record BlogCreateRequestDto(
         String title,
         String description
 ) {

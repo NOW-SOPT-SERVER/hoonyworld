@@ -1,12 +1,12 @@
 package com.sopt.org.controller;
 
 import com.sopt.org.common.dto.message.SuccessMessage;
-import com.sopt.org.domain.Blog;
+
 import com.sopt.org.service.BlogService;
 import com.sopt.org.service.PostService;
-import com.sopt.org.service.dto.PostCreateRequest;
+import com.sopt.org.service.dto.PostCreateRequestDto;
 import com.sopt.org.common.dto.SuccessStatusResponse;
-import com.sopt.org.service.dto.PostContentUpdateRequest;
+import com.sopt.org.service.dto.PostContentUpdateRequestDto;
 import com.sopt.org.service.dto.PostFindDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -25,10 +25,10 @@ public class PostController {
     @PostMapping("/blog/{blogId}/post")
     public ResponseEntity<SuccessStatusResponse> createPost(
             @RequestHeader Long blogId,
-            @Valid @RequestBody PostCreateRequest postCreateRequest) {
+            @Valid @RequestBody PostCreateRequestDto postCreateRequestDto) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .header("Location",
-                        postService.createPost(blogId, postCreateRequest))
+                        postService.createPost(blogId, postCreateRequestDto))
                 .body(SuccessStatusResponse.of(SuccessMessage.POST_CREATE_SUCCESS));
     }
 
@@ -44,8 +44,8 @@ public class PostController {
     public ResponseEntity<SuccessStatusResponse> updatePostContent(
             @PathVariable Long blogId,
             @PathVariable Long postId,
-            @Valid @RequestBody PostContentUpdateRequest postContentUpdateRequest) { // 내용이 50자 이상 넘을 경우 400 Bad Request
-        postService.updatePostContent(blogId, postId, postContentUpdateRequest);
+            @Valid @RequestBody PostContentUpdateRequestDto postContentUpdateRequestDto) { // 내용이 50자 이상 넘을 경우 400 Bad Request
+        postService.updatePostContent(blogId, postId, postContentUpdateRequestDto);
         return ResponseEntity.ok()
                 .body(SuccessStatusResponse.of(SuccessMessage.POST_CONTENT_UPDATE_SUCCESS));
     }

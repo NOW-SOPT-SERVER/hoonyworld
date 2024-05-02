@@ -5,9 +5,9 @@ import com.sopt.org.domain.Member;
 import com.sopt.org.exception.NotFoundException;
 import com.sopt.org.common.dto.message.ErrorMessage;
 import com.sopt.org.repository.BlogRepository;
-import com.sopt.org.service.dto.BlogCreateRequest;
+import com.sopt.org.service.dto.BlogCreateRequestDto;
 import com.sopt.org.service.dto.BlogFindDto;
-import com.sopt.org.service.dto.BlogTitleUpdateRequest;
+import com.sopt.org.service.dto.BlogTitleUpdateRequestDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,9 +19,9 @@ public class BlogService {
     private final BlogRepository blogRepository;
     private final MemberService memberService;
 
-    public String createBlog(Long memberId, BlogCreateRequest blogCreateRequest) {
+    public String createBlog(Long memberId, BlogCreateRequestDto blogCreateRequestDto) {
         Member member = memberService.findById(memberId);
-        Blog blog = blogRepository.save(Blog.create(member, blogCreateRequest));
+        Blog blog = blogRepository.save(Blog.create(member, blogCreateRequestDto));
         return blog.getId().toString();
     }
 
@@ -39,9 +39,9 @@ public class BlogService {
     }
 
     @Transactional
-    public void updateBlogTitle(Long blogId, BlogTitleUpdateRequest blogTitleUpdateRequest) {
+    public void updateBlogTitle(Long blogId, BlogTitleUpdateRequestDto blogTitleUpdateRequestDto) {
         Blog blog = blogRepository.findById(blogId).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.BLOG_NOT_FOUND_BY_ID_EXCEPTION));
-        blog.setBlogTitle(blogTitleUpdateRequest.title());
+        blog.setBlogTitle(blogTitleUpdateRequestDto.title());
     }
 }

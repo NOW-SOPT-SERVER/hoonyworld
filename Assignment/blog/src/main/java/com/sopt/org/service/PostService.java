@@ -5,8 +5,8 @@ import com.sopt.org.domain.Post;
 import com.sopt.org.exception.NotFoundException;
 import com.sopt.org.common.dto.message.ErrorMessage;
 import com.sopt.org.repository.PostRepository;
-import com.sopt.org.service.dto.PostCreateRequest;
-import com.sopt.org.service.dto.PostContentUpdateRequest;
+import com.sopt.org.service.dto.PostCreateRequestDto;
+import com.sopt.org.service.dto.PostContentUpdateRequestDto;
 import com.sopt.org.service.dto.PostFindDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -19,9 +19,9 @@ public class PostService {
     private final PostRepository postRepository;
     private final BlogService blogService;
 
-    public String createPost(Long blogId, PostCreateRequest postCreateRequest) {
+    public String createPost(Long blogId, PostCreateRequestDto postCreateRequestDto) {
         Blog blog = blogService.findBlogById(blogId);
-        Post post = Post.create(postCreateRequest, blog);
+        Post post = Post.create(postCreateRequestDto, blog);
         postRepository.save(post);
         return post.getId().toString();
     }
@@ -34,10 +34,10 @@ public class PostService {
     }
 
     @Transactional
-    public void updatePostContent(Long blogId, Long postId, PostContentUpdateRequest postContentUpdateRequest) {
+    public void updatePostContent(Long blogId, Long postId, PostContentUpdateRequestDto postContentUpdateRequestDto) {
         blogService.findBlogById(blogId); // 블로그 존재 확인
         Post post = postRepository.findById(postId).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.POST_NOT_FOUND_BY_ID_EXCEPTION));
-        post.setPostContent(postContentUpdateRequest.content());
+        post.setPostContent(postContentUpdateRequestDto.content());
     }
 }

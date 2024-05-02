@@ -1,6 +1,6 @@
 package com.sopt.org.service.dto;
 
-public record PostCreateRequest(
+public record PostCreateRequestDto(
         String title,
         String content
 ) {

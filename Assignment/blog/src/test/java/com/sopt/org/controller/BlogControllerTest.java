@@ -5,7 +5,7 @@ import com.sopt.org.repository.BlogRepository;
 import com.sopt.org.repository.MemberRepository;
 import com.sopt.org.service.BlogService;
 import com.sopt.org.service.MemberService;
-import com.sopt.org.service.dto.BlogCreateRequest;
+import com.sopt.org.service.dto.BlogCreateRequestDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -54,7 +54,7 @@ public class BlogControllerTest {
         public void createBlogFail() throws Exception {
 
             //given
-            String request = objectMapper.writeValueAsString(new BlogCreateRequest("소현이네 블로그", "블로그입니다."));
+            String request = objectMapper.writeValueAsString(new BlogCreateRequestDto("소현이네 블로그", "블로그입니다."));
 
             //when
             mockMvc.perform(
