@@ -33,7 +33,7 @@ public class PostController {
     public ResponseEntity<PostFindDto> getPost(
             @PathVariable Long blogId,
             @PathVariable Long postId) {
-        return ResponseEntity.ok(postService.findPostById(postId));
+        return ResponseEntity.ok(postService.findPostDtoById(postId));
     }
 
     @PatchMapping("/blog/{blogId}/post/{postId}/content")
@@ -41,8 +41,8 @@ public class PostController {
             @PathVariable Long blogId,
             @PathVariable Long postId,
             @Valid @RequestBody PostContentUpdateRequest postContentUpdateRequest) { // 내용이 50자 이상 넘을 경우 400 Bad Request
-        postService.updateContent(blogId, postId, postContentUpdateRequest);
+        postService.updatePostContent(blogId, postId, postContentUpdateRequest);
         return ResponseEntity.ok()
-                .body(SuccessStatusResponse.of(SuccessMessage.POST_UPDATE_SUCCESS));
+                .body(SuccessStatusResponse.of(SuccessMessage.POST_CONTENT_UPDATE_SUCCESS));
     }
 }
