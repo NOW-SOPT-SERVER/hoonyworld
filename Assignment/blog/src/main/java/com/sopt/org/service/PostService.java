@@ -35,7 +35,7 @@ public class PostService {
 
     @Transactional
     public void updatePostContent(Long blogId, Long postId, PostContentUpdateRequest postContentUpdateRequest) {
-        Blog blog = blogService.findBlogById(blogId); // 블로그 존재 확인
+        blogService.findBlogById(blogId); // 블로그 존재 확인
         Post post = postRepository.findById(postId).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.POST_NOT_FOUND_BY_ID_EXCEPTION));
         post.setPostContent(postContentUpdateRequest.content());
