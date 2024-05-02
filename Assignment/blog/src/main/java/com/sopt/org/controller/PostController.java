@@ -1,7 +1,6 @@
 package com.sopt.org.controller;
 
-import com.sopt.org.common.dto.SuccessMessage;
-import com.sopt.org.domain.Post;
+import com.sopt.org.common.dto.message.SuccessMessage;
 import com.sopt.org.service.PostService;
 import com.sopt.org.service.dto.PostCreateRequest;
 import com.sopt.org.common.dto.SuccessStatusResponse;
@@ -34,17 +33,16 @@ public class PostController {
     public ResponseEntity<PostFindDto> getPost(
             @PathVariable Long blogId,
             @PathVariable Long postId) {
-        Post post = postService.findPostById(postId);
-        PostFindDto postFindDto = PostFindDto.from(post);
-        return ResponseEntity.ok(postFindDto);
+        return ResponseEntity.ok(postService.findPostById(postId));
     }
 
-    @PatchMapping("/blog/{blogId}/post/{postId}")
-    public ResponseEntity updatePostContent(
-            @RequestHeader Long blogId,
+    @PatchMapping("/blog/{blogId}/post/{postId}/content")
+    public ResponseEntity<SuccessStatusResponse> updatePostContent(
+            @PathVariable Long blogId,
             @PathVariable Long postId,
-            @Valid @RequestBody PostContentUpdateRequest postContentUpdateRequest) {
-        postService.updateContent(postId, postContentUpdateRequest);
-        return ResponseEntity.ok().body(SuccessMessage.POST_UPDATE_SUCCESS);
+            @Valid @RequestBody PostContentUpdateRequest postContentUpdateRequest) { // 내용이 50자 이상 넘을 경우 400 Bad Request
+        postService.updateContent(blogId, postId, postContentUpdateRequest);
+        return ResponseEntity.ok()
+                .body(SuccessStatusResponse.of(SuccessMessage.POST_UPDATE_SUCCESS));
     }
 }
