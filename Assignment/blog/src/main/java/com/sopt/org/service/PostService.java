@@ -3,10 +3,11 @@ package com.sopt.org.service;
 import com.sopt.org.domain.Blog;
 import com.sopt.org.domain.Post;
 import com.sopt.org.exception.NotFoundException;
-import com.sopt.org.exception.message.ErrorMessage;
+import com.sopt.org.common.dto.message.ErrorMessage;
 import com.sopt.org.repository.PostRepository;
 import com.sopt.org.service.dto.PostCreateRequest;
 import com.sopt.org.service.dto.PostContentUpdateRequest;
+import com.sopt.org.service.dto.PostFindDto;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,15 +26,18 @@ public class PostService {
         return post.getId().toString();
     }
 
-    @Transactional
-    public void updateContent(Long postId, PostContentUpdateRequest postContentUpdateRequest) {
-        Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new NotFoundException(ErrorMessage.POST_NOT_FOUND_BY_ID_EXCEPTION));
-        post.setContent(postContentUpdateRequest.content());
+    // GET 요청을 위한 DTO
+    public PostFindDto findPostDtoById(Long postId) {
+        Post post = postRepository.findById(postId).orElseThrow(
+                () -> new NotFoundException(ErrorMessage.POST_NOT_FOUND_BY_ID_EXCEPTION));
+        return PostFindDto.from(post);
     }
 
-    public Post findPostById(Long postId) {
-        return postRepository.findById(postId)
-                .orElseThrow(() -> new NotFoundException(ErrorMessage.POST_NOT_FOUND_BY_ID_EXCEPTION));
+    @Transactional
+    public void updatePostContent(Long blogId, Long postId, PostContentUpdateRequest postContentUpdateRequest) {
+        Blog blog = blogService.findBlogById(blogId); // 블로그 존재 확인
+        Post post = postRepository.findById(postId).orElseThrow(
+                () -> new NotFoundException(ErrorMessage.POST_NOT_FOUND_BY_ID_EXCEPTION));
+        post.setPostContent(postContentUpdateRequest.content());
     }
 }
