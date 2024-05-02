@@ -23,9 +23,8 @@ public class PostController {
     public ResponseEntity<SuccessStatusResponse> createPost(
             @PathVariable Long blogId,
             @Valid @RequestBody PostCreateRequest postCreateRequest) {
-        String postId = postService.createPost(blogId, postCreateRequest);
         return ResponseEntity.status(HttpStatus.CREATED)
-                .header("Location", "/api/v1/blog/" + blogId + "/post/" + postId)
+                .header("Location", postService.createPost(blogId, postCreateRequest))
                 .body(SuccessStatusResponse.of(SuccessMessage.POST_CREATE_SUCCESS));
     }
 
