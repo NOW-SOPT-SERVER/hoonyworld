@@ -22,13 +22,14 @@ public class PostController {
     private final PostService postService;
     private final BlogService blogService;
 
-    @PostMapping("/blog/{blogId}/post")
+    @PostMapping("/post")
     public ResponseEntity<SuccessStatusResponse> createPost(
+            @RequestHeader Long memberId,
             @RequestHeader Long blogId,
             @Valid @RequestBody PostCreateRequestDto postCreateRequestDto) {
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .header("Location",
-                        postService.createPost(blogId, postCreateRequestDto))
+        return ResponseEntity.status(HttpStatus.CREATED).header
+                        ("Location",
+                        postService.createPost(memberId, blogId, postCreateRequestDto))
                 .body(SuccessStatusResponse.of(SuccessMessage.POST_CREATE_SUCCESS));
     }
 
