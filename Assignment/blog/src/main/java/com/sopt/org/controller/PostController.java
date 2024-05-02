@@ -24,7 +24,7 @@ public class PostController {
 
     @PostMapping("/blog/{blogId}/post")
     public ResponseEntity<SuccessStatusResponse> createPost(
-            @PathVariable Long blogId,
+            @RequestHeader Long blogId,
             @Valid @RequestBody PostCreateRequest postCreateRequest) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .header("Location",
