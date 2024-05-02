@@ -25,9 +25,10 @@ public class MemberService {
     public MemberFindDto findMemberById(
             Long memberId
     ) {
-        return MemberFindDto.from(memberRepository.findById(memberId).orElseThrow(
+        Member member = memberRepository.findById(memberId).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION)
-        ));
+        );
+        return MemberFindDto.from(member);
     }
 
     @Transactional
