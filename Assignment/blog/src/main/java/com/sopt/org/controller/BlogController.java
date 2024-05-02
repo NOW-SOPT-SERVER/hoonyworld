@@ -21,7 +21,7 @@ public class BlogController {
 
     @PostMapping("/blog")
     public ResponseEntity<SuccessStatusResponse> createBlog(
-            @RequestHeader Long memberId,
+            @RequestHeader Long memberId, // 보안상의 이유로 인해 사용자의 식별 정보는 URL에 노출되지 않도록 헤더로 처리
             @Valid @RequestBody BlogCreateRequestDto blogCreateRequestDto) {
         return ResponseEntity.status(HttpStatus.CREATED).header(
                         "Location",
@@ -38,7 +38,7 @@ public class BlogController {
     @PatchMapping("/blog/{blogId}/title")
     public ResponseEntity<SuccessStatusResponse> updateBlogTitle(
             @PathVariable Long blogId,
-            @Valid @RequestBody BlogTitleUpdateRequestDto blogTitleUpdateRequestDto // 블로그 글이 5
+            @Valid @RequestBody BlogTitleUpdateRequestDto blogTitleUpdateRequestDto // 블로그 글이 5자 이상이면 400 Bad Request
     ) {
         blogService.updateBlogTitle(blogId, blogTitleUpdateRequestDto);
         return ResponseEntity.ok()
