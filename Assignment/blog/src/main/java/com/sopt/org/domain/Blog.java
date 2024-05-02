@@ -39,7 +39,7 @@ public class Blog extends BaseTimeEntity{
         this.description = description;
     }
 
-    public void updateTitle(String title) {
+    public void setBlogTitle(String title) {
         this.title = title;
     }
 }
