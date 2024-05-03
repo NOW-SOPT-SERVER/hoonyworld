@@ -7,5 +7,3 @@ public record PostContentUpdateRequestDto(
         String content
 ) {
 }
-
-
