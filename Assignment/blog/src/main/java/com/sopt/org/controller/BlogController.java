@@ -37,10 +37,11 @@ public class BlogController {
 
     @PatchMapping("/blog/{blogId}/title")
     public ResponseEntity<SuccessStatusResponse> updateBlogTitle(
+            @RequestHeader Long memberId,
             @PathVariable Long blogId,
             @Valid @RequestBody BlogTitleUpdateRequestDto blogTitleUpdateRequestDto // 블로그 글이 5자 이상이면 400 Bad Request
     ) {
-        blogService.updateBlogTitle(blogId, blogTitleUpdateRequestDto);
+        blogService.updateBlogTitle(memberId, blogId, blogTitleUpdateRequestDto);
         return ResponseEntity.ok()
                 .body(SuccessStatusResponse.of(SuccessMessage.BLOG_TITLE_UPDATE_SUCCESS));
     }
