@@ -29,7 +29,7 @@ public class BlogController {
                 .body(SuccessStatusResponse.of(SuccessMessage.BLOG_CREATE_SUCCESS));
     }
 
-    @GetMapping("blog/{blogId}")
+    @GetMapping("/blog/{blogId}")
     public ResponseEntity<BlogFindDto> getBlog(
             @PathVariable Long blogId) {
         return ResponseEntity.ok(blogService.findBlogDtoById(blogId));
