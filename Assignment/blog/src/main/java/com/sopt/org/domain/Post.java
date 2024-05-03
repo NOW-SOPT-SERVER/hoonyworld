@@ -20,6 +20,7 @@ public class Post extends BaseTimeEntity{
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "blog_id")
     private Blog blog;
 
     public static Post create(final PostCreateRequestDto postCreateRequestDto, final Blog blog) {
