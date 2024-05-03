@@ -43,10 +43,11 @@ public class PostController {
 
     @PatchMapping("/blog/{blogId}/post/{postId}/content")
     public ResponseEntity<SuccessStatusResponse> updatePostContent(
+            @RequestHeader Long memberId,
             @PathVariable Long blogId,
             @PathVariable Long postId,
             @Valid @RequestBody PostContentUpdateRequestDto postContentUpdateRequestDto) { // 내용이 50자 이상 넘을 경우 400 Bad Request
-        postService.updatePostContent(blogId, postId, postContentUpdateRequestDto);
+        postService.updatePostContent(memberId, blogId, postId, postContentUpdateRequestDto);
         return ResponseEntity.ok()
                 .body(SuccessStatusResponse.of(SuccessMessage.POST_CONTENT_UPDATE_SUCCESS));
     }
