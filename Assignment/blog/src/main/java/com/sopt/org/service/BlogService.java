@@ -4,6 +4,7 @@ import com.sopt.org.domain.Blog;
 import com.sopt.org.domain.Member;
 import com.sopt.org.exception.NotFoundException;
 import com.sopt.org.common.dto.message.ErrorMessage;
+import com.sopt.org.exception.UnauthorizedBlogAccessException;
 import com.sopt.org.repository.BlogRepository;
 import com.sopt.org.service.dto.BlogCreateRequestDto;
 import com.sopt.org.service.dto.BlogFindDto;
@@ -39,9 +40,13 @@ public class BlogService {
     }
 
     @Transactional
-    public void updateBlogTitle(Long blogId, BlogTitleUpdateRequestDto blogTitleUpdateRequestDto) {
+    public void updateBlogTitle(Long memberId, Long blogId, BlogTitleUpdateRequestDto blogTitleUpdateRequestDto) {
         Blog blog = blogRepository.findById(blogId).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.BLOG_NOT_FOUND_BY_ID_EXCEPTION));
+
+        if (!blog.getMember().getId().equals(memberId)) {
+            throw new UnauthorizedBlogAccessException(ErrorMessage.NOT_OWNER_OF_THIS_BLOG);
+        }
         blog.setBlogTitle(blogTitleUpdateRequestDto.title());
     }
 }
