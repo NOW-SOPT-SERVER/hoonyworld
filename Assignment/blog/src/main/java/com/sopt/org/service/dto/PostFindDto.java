@@ -1,16 +1,19 @@
 package com.sopt.org.service.dto;
 
-import com.sopt.org.domain.Blog;
-import com.sopt.org.domain.Member;
 import com.sopt.org.domain.Post;
 
 public record PostFindDto(
         String title,
         String content,
-        Blog blog,
-        Member member
+        Long blogId,  // Blog 객체 대신 Blog의 ID만 포함
+        Long memberId // Member 객체 대신 Member의 ID만 포함
 ) {
     public static PostFindDto from(Post post) {
-        return new PostFindDto(post.getTitle(), post.getContent(), post.getBlog(), post.getBlog().getMember());
+        return new PostFindDto(
+                post.getTitle(),
+                post.getContent(),
+                post.getBlog().getId(),
+                post.getBlog().getMember().getId()
+        );
     }
 }
