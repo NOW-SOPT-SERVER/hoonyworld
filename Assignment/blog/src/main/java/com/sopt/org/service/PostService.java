@@ -23,12 +23,7 @@ public class PostService {
 
     public String createPost(Long memberId, Long blogId, PostCreateRequestDto postCreateRequestDto) {
         Blog blog = blogService.findBlogById(blogId);
-
-        // 해당 블로그 id의 블로그 소유자와 인자로 전달된 블로그 소유자 validate
-        if (!blog.getMember().getId().equals(memberId)) { // 둘이 다르면 -> 예외 발생시켜 해당 블로그 소유자가 아니면 블로그를 쓰지 못하도록 함
-            throw new UnauthorizedBlogAccessException(ErrorMessage.NOT_OWNER_OF_THIS_BLOG);
-        }
-
+        blogService.validateBlogOwner(blog, memberId);
         Post post = Post.create(postCreateRequestDto, blog);
         postRepository.save(post);
         return post.getId().toString();
