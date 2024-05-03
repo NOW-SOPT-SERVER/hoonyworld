@@ -5,6 +5,7 @@ import com.sopt.org.domain.Post;
 import com.sopt.org.exception.NotFoundException;
 import com.sopt.org.common.dto.message.ErrorMessage;
 import com.sopt.org.exception.UnauthorizedBlogAccessException;
+import com.sopt.org.exception.UnauthorizedPostAccessException;
 import com.sopt.org.repository.PostRepository;
 import com.sopt.org.service.dto.PostCreateRequestDto;
 import com.sopt.org.service.dto.PostContentUpdateRequestDto;
@@ -41,15 +42,20 @@ public class PostService {
     }
 
     @Transactional
-    public void updatePostContent(Long blogId, Long postId, PostContentUpdateRequestDto postContentUpdateRequestDto) {
-        Blog blog = blogService.findBlogById(blogId); // 블로그 존재 확인
+    public void updatePostContent(Long memberId, Long blogId, Long postId, PostContentUpdateRequestDto postContentUpdateRequestDto) {
+        Post post = postRepository.findById(postId).orElseThrow(
+                () -> new NotFoundException(ErrorMessage.POST_NOT_FOUND_BY_ID_EXCEPTION));
 
-        if (!blog.getId().equals(blogId)) {
+        // 포스트가 속한 블로그의 ID와 요청된 blogId가 일치하는지 확인
+        if (!post.getBlog().getId().equals(blogId)) {
+            throw new UnauthorizedPostAccessException(ErrorMessage.POST_DOES_NOT_BELONG_TO_BLOG);
+        }
+
+        // 블로그 소유주 확인
+        if (!post.getBlog().getMember().getId().equals(memberId)) {
             throw new UnauthorizedBlogAccessException(ErrorMessage.NOT_OWNER_OF_THIS_BLOG);
         }
 
-        Post post = postRepository.findById(postId).orElseThrow(
-                () -> new NotFoundException(ErrorMessage.POST_NOT_FOUND_BY_ID_EXCEPTION));
         post.setPostContent(postContentUpdateRequestDto.content());
     }
 }
