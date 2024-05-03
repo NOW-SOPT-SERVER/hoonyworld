@@ -3,6 +3,7 @@ package com.sopt.org.common;
 import com.sopt.org.common.dto.ErrorResponse;
 import com.sopt.org.exception.NotFoundException;
 import com.sopt.org.exception.UnauthorizedBlogAccessException;
+import com.sopt.org.exception.UnauthorizedPostAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -31,6 +32,12 @@ public class GlobalExceptionHandler {
     // 커스텀한 UnauthorizedBlogAccessException
     @ExceptionHandler(UnauthorizedBlogAccessException.class)
     protected ResponseEntity<ErrorResponse> handleUnauthorizedBlogAccessException(UnauthorizedBlogAccessException e) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(ErrorResponse.of(e.getErrorMessage().getStatus(), e.getMessage()));
+    }
+
+    @ExceptionHandler(UnauthorizedPostAccessException.class)
+    protected ResponseEntity<ErrorResponse> handleUnauthorizedPostAccessException(UnauthorizedPostAccessException e) {
         return ResponseEntity.status(HttpStatus.FORBIDDEN)
                 .body(ErrorResponse.of(e.getErrorMessage().getStatus(), e.getMessage()));
     }
