@@ -1,5 +1,6 @@
 package com.sopt.carrotmarket.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sopt.carrotmarket.domain.constant.Location;
 import com.sopt.carrotmarket.shared.BaseTimeEntity;
 import jakarta.persistence.*;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // 임시 처리
 public class Member extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
