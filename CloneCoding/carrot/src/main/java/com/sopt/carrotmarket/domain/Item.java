@@ -5,6 +5,7 @@ import com.sopt.carrotmarket.domain.constant.ItemSoldStatus;
 import com.sopt.carrotmarket.domain.constant.ItemTransactionMethod;
 import com.sopt.carrotmarket.shared.BaseTimeEntity;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -49,5 +50,38 @@ public class Item extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ItemSoldStatus itemSoldStatus;
+
+    public static Item create(Member member, String imageUrl, String title, ItemCategory itemCategory,
+                              ItemTransactionMethod itemTransactionMethod, double price, Boolean isNegotiable,
+                              String description, String preferredLocation, ItemSoldStatus itemSoldStatus) {
+        return Item.builder()
+                .member(member)
+                .imageUrl(imageUrl)
+                .title(title)
+                .itemCategory(itemCategory)
+                .itemTransactionMethod(itemTransactionMethod)
+                .price(price)
+                .isNegotiable(isNegotiable)
+                .description(description)
+                .preferredLocation(preferredLocation)
+                .itemSoldStatus(itemSoldStatus)
+                .build();
+    }
+
+    @Builder
+    public Item(Member member, String imageUrl, String title, ItemCategory itemCategory,
+                ItemTransactionMethod itemTransactionMethod, double price, Boolean isNegotiable,
+                String description, String preferredLocation, ItemSoldStatus itemSoldStatus) {
+        this.member = member;
+        this.imageUrl = imageUrl;
+        this.title = title;
+        this.itemCategory = itemCategory;
+        this.itemTransactionMethod = itemTransactionMethod;
+        this.price = price;
+        this.isNegotiable = isNegotiable;
+        this.description = description;
+        this.preferredLocation = preferredLocation;
+        this.itemSoldStatus = itemSoldStatus;
+    }
 }
 

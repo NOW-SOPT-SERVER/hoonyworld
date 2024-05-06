@@ -3,6 +3,7 @@ package com.sopt.carrotmarket.domain;
 import com.sopt.carrotmarket.domain.constant.Location;
 import com.sopt.carrotmarket.shared.BaseTimeEntity;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,4 +26,21 @@ public class Member extends BaseTimeEntity {
 
     @Enumerated(EnumType.STRING)
     private Location location;
+
+    public static Member create(String username, String email, String password, Location location) {
+        return Member.builder()
+                .username(username)
+                .email(email)
+                .password(password)
+                .location(location)
+                .build();
+    }
+
+    @Builder
+    public Member(String username, String email, String password, Location location) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.location = location;
+    }
 }
