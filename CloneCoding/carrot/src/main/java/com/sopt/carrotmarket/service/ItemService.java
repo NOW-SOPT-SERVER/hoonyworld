@@ -1,8 +1,10 @@
 package com.sopt.carrotmarket.service;
 
+import com.sopt.carrotmarket.common.dto.message.ErrorMessage;
 import com.sopt.carrotmarket.domain.Item;
 import com.sopt.carrotmarket.domain.Member;
 import com.sopt.carrotmarket.domain.constant.Location;
+import com.sopt.carrotmarket.exception.NotFoundException;
 import com.sopt.carrotmarket.repository.ItemRepository;
 import com.sopt.carrotmarket.service.dto.ItemCreateRequest;
 import jakarta.transaction.Transactional;
@@ -27,5 +29,11 @@ public class ItemService {
 
     public List<Item> getItemsByLocation(Location location) {
         return itemRepository.findByMemberLocation(location);
+    }
+
+    public Item findById(Long itemId) {
+        return itemRepository.findById(itemId).orElseThrow(
+                () -> new NotFoundException(ErrorMessage.ITEM_NOT_FOUND_BY_ID_EXCEPTION)
+        );
     }
 }
