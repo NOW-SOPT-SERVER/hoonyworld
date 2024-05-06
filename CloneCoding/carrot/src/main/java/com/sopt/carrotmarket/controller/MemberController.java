@@ -4,13 +4,11 @@ import com.sopt.carrotmarket.common.dto.SuccessStatusResponse;
 import com.sopt.carrotmarket.common.dto.message.SuccessMessage;
 import com.sopt.carrotmarket.service.MemberService;
 import com.sopt.carrotmarket.service.dto.MemberCreateRequest;
+import com.sopt.carrotmarket.service.dto.MemberFindResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,5 +23,12 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.CREATED).header(
                 "Location", memberService.createMember(memberCreateRequest))
                 .body(SuccessStatusResponse.from(SuccessMessage.MEMBER_CREATE_SUCCESS));
+    }
+
+    @GetMapping("/member/{memberId}")
+    public ResponseEntity<MemberFindResponse> getMemberById(
+            @PathVariable("memberId") Long memberId
+    ) {
+        return ResponseEntity.ok(memberService.findMemberById(memberId));
     }
 }
