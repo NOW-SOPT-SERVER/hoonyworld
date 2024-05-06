@@ -5,14 +5,14 @@ public enum ItemSoldStatus {
     SOLD_OUT("판매완료"),
     HIDDEN("숨김");
 
-    private final String status;
+    private final String soldStatus;
 
-    ItemSoldStatus(String status) {
-        this.status = status;
+    ItemSoldStatus(String soldStatus) {
+        this.soldStatus = soldStatus;
     }
 
-    public String getStatus() {
-        return this.status;
+    public String getSoldStatus() {
+        return this.soldStatus;
     }
 }
 
