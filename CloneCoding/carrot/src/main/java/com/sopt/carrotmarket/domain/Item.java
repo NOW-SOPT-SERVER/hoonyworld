@@ -24,25 +24,12 @@ public class Item extends BaseTimeEntity {
     @Column(nullable = true)
     private String imageUrl;
 
-    @Column(nullable = false)
-    private String title;
+    @Embedded
+    private ProductDetails productDetails;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ItemCategory itemCategory;
+    @Embedded
+    private TransactionDetails transactionDetails;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ItemTransactionMethod itemTransactionMethod;
-
-    @Column(nullable = false)
-    private double price; // 나눔하기 선택시 0으로 설정 가능
-
-    @Column(nullable = false)
-    private Boolean isNegotiable = false;
-
-    @Column(length = 500)
-    private String description;
 
     @Column(nullable = false)
     private String preferredLocation;
@@ -51,35 +38,27 @@ public class Item extends BaseTimeEntity {
     @Column(nullable = false)
     private ItemSoldStatus itemSoldStatus;
 
-    public static Item create(Member member, String imageUrl, String title, ItemCategory itemCategory,
-                              ItemTransactionMethod itemTransactionMethod, double price, Boolean isNegotiable,
-                              String description, String preferredLocation, ItemSoldStatus itemSoldStatus) {
+    public static Item create(Member member, String imageUrl, ProductDetails productDetails,
+                              TransactionDetails transactionDetails, String preferredLocation,
+                              ItemSoldStatus itemSoldStatus) {
         return Item.builder()
                 .member(member)
                 .imageUrl(imageUrl)
-                .title(title)
-                .itemCategory(itemCategory)
-                .itemTransactionMethod(itemTransactionMethod)
-                .price(price)
-                .isNegotiable(isNegotiable)
-                .description(description)
+                .productDetails(productDetails)
+                .transactionDetails(transactionDetails)
                 .preferredLocation(preferredLocation)
                 .itemSoldStatus(itemSoldStatus)
                 .build();
     }
 
     @Builder
-    public Item(Member member, String imageUrl, String title, ItemCategory itemCategory,
-                ItemTransactionMethod itemTransactionMethod, double price, Boolean isNegotiable,
-                String description, String preferredLocation, ItemSoldStatus itemSoldStatus) {
+    public Item(Member member, String imageUrl, ProductDetails productDetails,
+                TransactionDetails transactionDetails, String preferredLocation,
+                ItemSoldStatus itemSoldStatus) {
         this.member = member;
         this.imageUrl = imageUrl;
-        this.title = title;
-        this.itemCategory = itemCategory;
-        this.itemTransactionMethod = itemTransactionMethod;
-        this.price = price;
-        this.isNegotiable = isNegotiable;
-        this.description = description;
+        this.productDetails = productDetails;
+        this.transactionDetails = transactionDetails;
         this.preferredLocation = preferredLocation;
         this.itemSoldStatus = itemSoldStatus;
     }
