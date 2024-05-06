@@ -1,5 +1,10 @@
 package com.sopt.carrotmarket.domain.constant;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum ItemCategory {
     DIGITAL_DEVICES("디지털기기"),
     HOME_APPLIANCES("생활가전"),
@@ -22,12 +27,4 @@ public enum ItemCategory {
     BUY("삽니다"); // ItemStatus가 판매중, 판매완료일 때 비활성화
 
     private final String category;
-
-    ItemCategory(String category) {
-        this.category = category;
-    }
-
-    public String getCategory() {
-        return this.category;
-    }
 }

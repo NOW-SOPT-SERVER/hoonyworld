@@ -1,5 +1,10 @@
 package com.sopt.carrotmarket.domain.constant;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum Location {
     JUNGDONG("중앙동"),
     WONINDONG("원인동"),
@@ -19,12 +24,4 @@ public enum Location {
     BANGOKKWANSEOLDONG("반곡관설동");
 
     private final String dong;
-
-    Location(String dong) {
-        this.dong = dong;
-    }
-
-    public String getDong() {
-        return dong;
-    }
 }
