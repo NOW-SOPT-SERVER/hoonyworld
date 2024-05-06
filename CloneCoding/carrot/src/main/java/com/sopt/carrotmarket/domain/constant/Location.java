@@ -6,7 +6,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum Location {
-    JUNGDONG("중앙동"),
+    JUNGANGDONG("중앙동"),
     WONINDONG("원인동"),
     GAEUNDONG("개운동"),
     MYEONGRYUN1DONG("명륜1동"),
