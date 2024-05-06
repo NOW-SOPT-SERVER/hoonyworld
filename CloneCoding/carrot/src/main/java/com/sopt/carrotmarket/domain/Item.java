@@ -1,8 +1,7 @@
 package com.sopt.carrotmarket.domain;
 
-import com.sopt.carrotmarket.domain.constant.ItemCategory;
 import com.sopt.carrotmarket.domain.constant.ItemSoldStatus;
-import com.sopt.carrotmarket.domain.constant.ItemTransactionMethod;
+import com.sopt.carrotmarket.service.dto.ItemCreateRequest;
 import com.sopt.carrotmarket.shared.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -30,7 +29,6 @@ public class Item extends BaseTimeEntity {
     @Embedded
     private TransactionDetails transactionDetails;
 
-
     @Column(nullable = false)
     private String preferredLocation;
 
@@ -38,16 +36,14 @@ public class Item extends BaseTimeEntity {
     @Column(nullable = false)
     private ItemSoldStatus itemSoldStatus;
 
-    public static Item create(Member member, String imageUrl, ProductDetails productDetails,
-                              TransactionDetails transactionDetails, String preferredLocation,
-                              ItemSoldStatus itemSoldStatus) {
+    public static Item create(Member member, ItemCreateRequest itemCreateRequest) {
         return Item.builder()
                 .member(member)
-                .imageUrl(imageUrl)
-                .productDetails(productDetails)
-                .transactionDetails(transactionDetails)
-                .preferredLocation(preferredLocation)
-                .itemSoldStatus(itemSoldStatus)
+                .imageUrl(itemCreateRequest.imageUrl())
+                .productDetails(itemCreateRequest.productDetails())
+                .transactionDetails(itemCreateRequest.transactionDetails())
+                .preferredLocation(itemCreateRequest.preferredLocation())
+                .itemSoldStatus(itemCreateRequest.itemSoldStatus())
                 .build();
     }
 
