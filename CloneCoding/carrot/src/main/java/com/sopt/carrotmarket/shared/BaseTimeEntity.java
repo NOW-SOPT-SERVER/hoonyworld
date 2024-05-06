@@ -1,4 +1,4 @@
-package com.sopt.carrotmarket.domain;
+package com.sopt.carrotmarket.shared;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

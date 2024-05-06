@@ -1,5 +1,7 @@
 package com.sopt.carrotmarket.domain;
 
+import com.sopt.carrotmarket.domain.constant.Location;
+import com.sopt.carrotmarket.shared.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Member extends BaseTimeEntity{
+public class Member extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -1,4 +1,4 @@
-package com.sopt.carrotmarket.domain;
+package com.sopt.carrotmarket.domain.constant;
 
 public enum Location {
     JUNGDONG("중앙동"),

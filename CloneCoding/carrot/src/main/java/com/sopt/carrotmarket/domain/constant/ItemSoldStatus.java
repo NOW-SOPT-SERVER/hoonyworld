@@ -1,4 +1,4 @@
-package com.sopt.carrotmarket.domain;
+package com.sopt.carrotmarket.domain.constant;
 
 public enum ItemSoldStatus {
     FOR_SALE("판매중"),

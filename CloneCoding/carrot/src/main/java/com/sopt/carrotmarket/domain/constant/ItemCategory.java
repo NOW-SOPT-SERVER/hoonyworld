@@ -1,4 +1,4 @@
-package com.sopt.carrotmarket.domain;
+package com.sopt.carrotmarket.domain.constant;
 
 public enum ItemCategory {
     DIGITAL_DEVICES("디지털기기"),

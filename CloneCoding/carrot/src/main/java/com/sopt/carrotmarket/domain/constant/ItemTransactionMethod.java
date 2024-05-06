@@ -1,4 +1,4 @@
-package com.sopt.carrotmarket.domain;
+package com.sopt.carrotmarket.domain.constant;
 
 public enum ItemTransactionMethod {
     SALE("판매하기"),
