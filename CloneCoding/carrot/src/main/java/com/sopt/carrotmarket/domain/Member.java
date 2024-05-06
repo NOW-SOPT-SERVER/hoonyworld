@@ -25,6 +25,7 @@ public class Member extends BaseTimeEntity {
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Location location;
 
     public static Member create(String username, String email, String password, Location location) {
