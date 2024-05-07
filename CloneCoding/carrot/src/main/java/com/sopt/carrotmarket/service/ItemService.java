@@ -22,7 +22,7 @@ public class ItemService {
     private final ItemRepository itemRepository;
 
     @Transactional
-    public String createItem(Long memberId, ItemCreateRequest itemCreateRequest) {
+    public String createItem(long memberId, ItemCreateRequest itemCreateRequest) {
         Member member = memberService.findById(memberId);
         Item item = itemRepository.save(Item.create(member, itemCreateRequest));
         return item.getId().toString();
@@ -35,7 +35,7 @@ public class ItemService {
                 .toList();
     }
 
-    public Item findById(Long itemId) {
+    public Item findById(long itemId) {
         return itemRepository.findById(itemId).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.ITEM_NOT_FOUND_BY_ID_EXCEPTION)
         );

@@ -22,7 +22,7 @@ public class MemberService {
     }
 
     public MemberFindResponse findMemberById(
-            Long memberId
+            long memberId
     ) {
         Member member = memberRepository.findById(memberId).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION)
@@ -30,7 +30,7 @@ public class MemberService {
         return MemberFindResponse.from(member);
     }
 
-    public Member findById(Long memberId) {
+    public Member findById(long memberId) {
         return memberRepository.findById(memberId).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION)
         );
