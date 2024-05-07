@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // 임시 처리
 public class Member extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
