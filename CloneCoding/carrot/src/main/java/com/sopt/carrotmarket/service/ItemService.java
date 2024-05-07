@@ -7,6 +7,7 @@ import com.sopt.carrotmarket.domain.constant.Location;
 import com.sopt.carrotmarket.exception.NotFoundException;
 import com.sopt.carrotmarket.repository.ItemRepository;
 import com.sopt.carrotmarket.service.dto.ItemCreateRequest;
+import com.sopt.carrotmarket.service.dto.ItemResponse;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,8 +28,11 @@ public class ItemService {
         return item.getId().toString();
     }
 
-    public List<Item> getItemsByLocation(Location location) {
-        return itemRepository.findByMemberLocation(location);
+    public List<ItemResponse> getItemsByLocation(Location location) {
+        List<Item> items = itemRepository.findByMemberLocation(location);
+        return items.stream()
+                .map(ItemResponse::from)
+                .toList();
     }
 
     public Item findById(Long itemId) {
