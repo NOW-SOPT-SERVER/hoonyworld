@@ -30,8 +30,8 @@ public class ItemController {
                 .body(SuccessStatusResponse.from(SuccessMessage.ITEM_REGISTER_SUCCESS));
     }
 
-    @GetMapping("/items/{location}")
-    public ResponseEntity<List<ItemListByRegionResponse>> getItemsByLocation(@PathVariable Location location) {
+    @GetMapping("/items")
+    public ResponseEntity<List<ItemListByRegionResponse>> getItemsByLocation(@RequestParam Location location) {
         List<ItemListByRegionResponse> items = itemService.getItemsByLocation(location);
         return ResponseEntity.ok(items);
     }
