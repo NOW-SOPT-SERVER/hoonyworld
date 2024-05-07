@@ -5,7 +5,7 @@ import com.sopt.carrotmarket.common.dto.message.SuccessMessage;
 import com.sopt.carrotmarket.domain.constant.Location;
 import com.sopt.carrotmarket.service.ItemService;
 import com.sopt.carrotmarket.service.dto.ItemCreateRequest;
-import com.sopt.carrotmarket.service.dto.ItemResponse;
+import com.sopt.carrotmarket.service.dto.ItemListByRegionResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +31,8 @@ public class ItemController {
     }
 
     @GetMapping("/items/{location}")
-    public ResponseEntity<List<ItemResponse>> getItemsByLocation(@PathVariable Location location) {
-        List<ItemResponse> items = itemService.getItemsByLocation(location);
+    public ResponseEntity<List<ItemListByRegionResponse>> getItemsByLocation(@PathVariable Location location) {
+        List<ItemListByRegionResponse> items = itemService.getItemsByLocation(location);
         return ResponseEntity.ok(items);
     }
 }

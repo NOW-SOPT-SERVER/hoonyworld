@@ -8,7 +8,7 @@ import com.sopt.carrotmarket.domain.constant.Location;
 
 import java.time.LocalDateTime;
 
-public record ItemResponse(
+public record ItemListByRegionResponse(
         Long memberId,
         Location location,
         String imageUrl,
@@ -20,8 +20,8 @@ public record ItemResponse(
         ItemSoldStatus itemSoldStatus,
         ItemTransactionMethod itemTransactionMethod
 ) {
-    public static ItemResponse from(Item item) {
-        return new ItemResponse(
+    public static ItemListByRegionResponse from(Item item) {
+        return new ItemListByRegionResponse(
                 item.getMember().getId(),
                 item.getMember().getLocation(),
                 item.getImageUrl(),
