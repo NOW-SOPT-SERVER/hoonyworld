@@ -4,7 +4,7 @@ import com.sopt.org.domain.Blog;
 import com.sopt.org.domain.Member;
 import com.sopt.org.exception.NotFoundException;
 import com.sopt.org.common.dto.message.ErrorMessage;
-import com.sopt.org.exception.UnauthorizedBlogAccessException;
+import com.sopt.org.exception.ForbiddenBlogAccessException;
 import com.sopt.org.repository.BlogRepository;
 import com.sopt.org.service.dto.BlogCreateRequestDto;
 import com.sopt.org.service.dto.BlogFindDto;
@@ -53,7 +53,7 @@ public class BlogService {
     // Blog 소유권 검증 메서드
     public void validateBlogOwner(Blog blog, Long memberId) {
         if (!blog.getMember().getId().equals(memberId)) {
-            throw new UnauthorizedBlogAccessException(ErrorMessage.NOT_OWNER_OF_THIS_BLOG);
+            throw new ForbiddenBlogAccessException(ErrorMessage.NOT_OWNER_OF_THIS_BLOG);
         }
     }
 }

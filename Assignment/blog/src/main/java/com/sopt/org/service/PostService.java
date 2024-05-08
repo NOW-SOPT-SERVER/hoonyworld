@@ -4,8 +4,8 @@ import com.sopt.org.domain.Blog;
 import com.sopt.org.domain.Post;
 import com.sopt.org.exception.NotFoundException;
 import com.sopt.org.common.dto.message.ErrorMessage;
-import com.sopt.org.exception.UnauthorizedBlogAccessException;
-import com.sopt.org.exception.UnauthorizedPostAccessException;
+import com.sopt.org.exception.ForbiddenBlogAccessException;
+import com.sopt.org.exception.ForbiddenPostAccessException;
 import com.sopt.org.repository.PostRepository;
 import com.sopt.org.service.dto.PostCreateRequestDto;
 import com.sopt.org.service.dto.PostContentUpdateRequestDto;
@@ -43,12 +43,12 @@ public class PostService {
 
         // 포스트가 속한 블로그의 ID와 요청된 blogId가 일치하는지 확인
         if (!post.getBlog().getId().equals(blogId)) {
-            throw new UnauthorizedPostAccessException(ErrorMessage.POST_DOES_NOT_BELONG_TO_BLOG);
+            throw new ForbiddenPostAccessException(ErrorMessage.POST_DOES_NOT_BELONG_TO_BLOG);
         }
 
         // 블로그 소유주 확인
         if (!post.getBlog().getMember().getId().equals(memberId)) {
-            throw new UnauthorizedBlogAccessException(ErrorMessage.NOT_OWNER_OF_THIS_BLOG);
+            throw new ForbiddenBlogAccessException(ErrorMessage.NOT_OWNER_OF_THIS_BLOG);
         }
 
         post.setPostContent(postContentUpdateRequestDto.content());
