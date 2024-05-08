@@ -25,9 +25,7 @@ public class MemberService {
     public MemberFindDto findMemberById(
             Long memberId
     ) {
-        Member member = memberRepository.findById(memberId).orElseThrow(
-                () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION)
-        );
+        Member member = findMemberOrThrow(memberId);
         return MemberFindDto.from(member);
     }
 
@@ -35,9 +33,7 @@ public class MemberService {
     public void deleteMemberById(
             Long memberId
     ) {
-        Member member = memberRepository.findById(memberId).orElseThrow(
-                () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION)
-        );
+        Member member = findMemberOrThrow(memberId);
         memberRepository.delete(member);
     }
 
@@ -46,6 +42,10 @@ public class MemberService {
     }
 
     public Member findById(Long memberId) {
+        return findMemberOrThrow(memberId);
+    }
+
+    private Member findMemberOrThrow(Long memberId) {
         return memberRepository.findById(memberId).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.MEMBER_NOT_FOUND_BY_ID_EXCEPTION)
         );
