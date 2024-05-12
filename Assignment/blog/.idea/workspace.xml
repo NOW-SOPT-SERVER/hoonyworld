@@ -1,0 +1,750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="83524f02-554b-4f17-a564-06f6b454f5dc" name="변경" comment="refactor(PostFindDto): 직렬화 문제 해결 및 성능 향상을 위해 PostFindDto 구조 변경&#10;&#10;- PostFindDto에서 Blog와 Member 객체 대신 blogId와 memberId 필드로 변경.&#10;- Hibernate 관련 직렬화 문제 및 불필요한 데이터 로딩을 방지하기 위해 DTO에서 ID만 전송하도록 수정.">
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/0/1/0151ab40d91899cd8fc105976952e538943325cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/0/d/0d9e24cb34a775310103686877c7ab5f078ac457" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/1/1/11c59770077c07b36aacf404ad9712031c6b462f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/1/9/19b98f31d81b6d9b10f83fb589a9646f13d7d461" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/2/52004ab40e814040a611c5984ea335b065800300" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/a/5a56e7e91204e774b427b2deed280bfc2720d0aa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/6/4/64c33c78627b5374ff37f5ab21c0fd9dfc8c1fc3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/7/8/78395a136892c45061d9a890d9fb59a151f39270" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/8/7/87e7ce4097260dab8c4e3f66996c384be36b5d55" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/8/8/88e8af23c2dd6896f3387b44f60642e114781c77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/c/5/c539df13dcc7edafa0e2ec14517e5dff7c1fda24" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/e/4/e436a4032b4a56c379ada960d766eec78a58e5c6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/0/1/0151ab40d91899cd8fc105976952e538943325cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/0/d/0d9e24cb34a775310103686877c7ab5f078ac457" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/1/1/11c59770077c07b36aacf404ad9712031c6b462f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/1/9/19b98f31d81b6d9b10f83fb589a9646f13d7d461" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/5/2/52004ab40e814040a611c5984ea335b065800300" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/5/a/5a56e7e91204e774b427b2deed280bfc2720d0aa" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/6/4/64c33c78627b5374ff37f5ab21c0fd9dfc8c1fc3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/7/8/78395a136892c45061d9a890d9fb59a151f39270" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/8/7/87e7ce4097260dab8c4e3f66996c384be36b5d55" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/8/8/88e8af23c2dd6896f3387b44f60642e114781c77" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/c/5/c539df13dcc7edafa0e2ec14517e5dff7c1fda24" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/e/4/e436a4032b4a56c379ada960d766eec78a58e5c6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="blog" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hoonyworld&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="hoonyworld_2" />
+                    <option name="lastUsedInstant" value="1713352163" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1713352162" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/../.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NOW-SOPT-SERVER/hoonyworld.git&quot;,
+    &quot;accountId&quot;: &quot;bc8067f5-7071-4ee0-a8c3-d64a9ed666ad&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2eid4CH8hqMGcEvAw7KoJseUeZj" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.'com.sopt.org.settings'에 있는 테스트.executor": "Run",
+    "Gradle.'week2-1.test'에 있는 테스트.executor": "Run",
+    "Gradle.BlogControllerTest.executor": "Run",
+    "Gradle.MemberControllerTest.executor": "Run",
+    "Gradle.blog 빌드.executor": "Run",
+    "Gradle.week2-1 빌드.executor": "Run",
+    "Gradle.week3-1 빌드.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "Spring Boot.Application.executor": "Run",
+    "Spring Boot.Week21Application.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/donghoon/IdeaProjects/sopt/hoonyworld/Assignment/blog",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDK",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="BlogControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.sopt.org.controller.BlogControllerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="MemberControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.sopt.org.controller.MemberControllerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="'com.sopt.org.settings'에 있는 테스트" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.sopt.org.settings.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="'week2-1.test'에 있는 테스트" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="week3-1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="week3-1" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="blog.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sopt.org.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.BlogControllerTest" />
+        <item itemvalue="Gradle.'week2-1.test'에 있는 테스트" />
+        <item itemvalue="Gradle.'com.sopt.org.settings'에 있는 테스트" />
+        <item itemvalue="Gradle.MemberControllerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="83524f02-554b-4f17-a564-06f6b454f5dc" name="변경" comment="" />
+      <created>1712391139423</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712391139423</updated>
+      <workItem from="1712391142018" duration="2913000" />
+      <workItem from="1713008485837" duration="1279000" />
+      <workItem from="1713164128943" duration="115000" />
+      <workItem from="1713340874255" duration="4813000" />
+      <workItem from="1713345694398" duration="3534000" />
+      <workItem from="1713351400090" duration="270000" />
+      <workItem from="1713351733098" duration="8000" />
+      <workItem from="1713351784127" duration="47000" />
+      <workItem from="1713351966035" duration="5165000" />
+      <workItem from="1713548280337" duration="253000" />
+      <workItem from="1713591517368" duration="42000" />
+      <workItem from="1714556936301" duration="167000" />
+      <workItem from="1714557106111" duration="12197000" />
+      <workItem from="1714571388652" duration="44000" />
+      <workItem from="1714571434976" duration="48000" />
+      <workItem from="1714733359459" duration="2755000" />
+      <workItem from="1714736128038" duration="10243000" />
+      <workItem from="1714915789064" duration="1057000" />
+    </task>
+    <task id="LOCAL-00019" summary="feat(MemberController): 특정 회원 ID를 이용해 해당 회원을 삭제하는 DELETE 요청 구현">
+      <option name="closed" value="true" />
+      <created>1713344632500</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1713344632500</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat(build.gradle): RestAssured 사용을 위한 종속성 추가">
+      <option name="closed" value="true" />
+      <created>1713345283497</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1713345283497</updated>
+    </task>
+    <task id="LOCAL-00021" summary="test(ApiTest): 환경 세팅을 위한 ApiTest 클래스 추상화">
+      <option name="closed" value="true" />
+      <created>1713345784593</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1713345784593</updated>
+    </task>
+    <task id="LOCAL-00022" summary="test(MemberControllerTest): 멤버 생성 API에 대한 테스트 구현">
+      <option name="closed" value="true" />
+      <created>1713345853558</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1713345853558</updated>
+    </task>
+    <task id="LOCAL-00023" summary="feat(SwaggerConfig): 스웨거 기능 추가">
+      <option name="closed" value="true" />
+      <created>1713352015249</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1713352015249</updated>
+    </task>
+    <task id="LOCAL-00024" summary="init: initial commit">
+      <option name="closed" value="true" />
+      <created>1714557200436</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1714557200436</updated>
+    </task>
+    <task id="LOCAL-00025" summary="init: initial commit">
+      <option name="closed" value="true" />
+      <created>1714557231235</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1714557231235</updated>
+    </task>
+    <task id="LOCAL-00026" summary="refactor: 환경설정 업데이트">
+      <option name="closed" value="true" />
+      <created>1714559924104</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1714559924104</updated>
+    </task>
+    <task id="LOCAL-00027" summary="refactor: 변경사항 업데이트">
+      <option name="closed" value="true" />
+      <created>1714560034839</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1714560034839</updated>
+    </task>
+    <task id="LOCAL-00028" summary="feat(Blog): Blog 엔티티 생성">
+      <option name="closed" value="true" />
+      <created>1714560426205</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1714560426205</updated>
+    </task>
+    <task id="LOCAL-00029" summary="feat(Post): Post 엔티티 생성">
+      <option name="closed" value="true" />
+      <created>1714560483143</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1714560483143</updated>
+    </task>
+    <task id="LOCAL-00030" summary="feat(JpaAuditingConfig): Auditing 기능 활성화&#10;&#10;-  데이터의 생성 날짜와 수정 날짜를 자동으로 관리합니다">
+      <option name="closed" value="true" />
+      <created>1714563711645</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1714563711645</updated>
+    </task>
+    <task id="LOCAL-00031" summary="feat(BaseTimeEntity): BaseTimeEntity 추상 클래스 정의">
+      <option name="closed" value="true" />
+      <created>1714563753373</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1714563753373</updated>
+    </task>
+    <task id="LOCAL-00032" summary="feat: BaseTimeEntity 상속">
+      <option name="closed" value="true" />
+      <created>1714563807492</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1714563807492</updated>
+    </task>
+    <task id="LOCAL-00033" summary="feat(BlogController): 블로그 생성 API를 제공하는 컨트롤러 생성">
+      <option name="closed" value="true" />
+      <created>1714564270582</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1714564270582</updated>
+    </task>
+    <task id="LOCAL-00034" summary="feat(SuccessStatusResponse): 성공 여부를 알려주는 레코드 생성">
+      <option name="closed" value="true" />
+      <created>1714564407949</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1714564407949</updated>
+    </task>
+    <task id="LOCAL-00035" summary="feat(SuccessMessage): 상태 코드 및 반환 메시지를 정의한 enum 생성">
+      <option name="closed" value="true" />
+      <created>1714564430972</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1714564430972</updated>
+    </task>
+    <task id="LOCAL-00036" summary="feat(BlogCreateRequest): 블로그 생성 요청 DTO 생성">
+      <option name="closed" value="true" />
+      <created>1714565003201</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1714565003201</updated>
+    </task>
+    <task id="LOCAL-00037" summary="feat(BlogService): 블로그 관련 비즈니스 로직을 처리하는 서비스 컴포넌트 생성">
+      <option name="closed" value="true" />
+      <created>1714565100642</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1714565100642</updated>
+    </task>
+    <task id="LOCAL-00038" summary="feat(MemberService): memberId로 Member를 찾는 메서드 구현">
+      <option name="closed" value="true" />
+      <created>1714565187763</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1714565187763</updated>
+    </task>
+    <task id="LOCAL-00039" summary="feat(BlogRepository): BlogRepository 생성">
+      <option name="closed" value="true" />
+      <created>1714565818506</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1714565818506</updated>
+    </task>
+    <task id="LOCAL-00040" summary="feat(PostRepository): PostRepository 생성">
+      <option name="closed" value="true" />
+      <created>1714565832844</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1714565832844</updated>
+    </task>
+    <task id="LOCAL-00041" summary="refactor(BlogService): create 메서드 매개변수 리팩토링">
+      <option name="closed" value="true" />
+      <created>1714565923289</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1714565923289</updated>
+    </task>
+    <task id="LOCAL-00042" summary="chore(BlogService): import문 추가">
+      <option name="closed" value="true" />
+      <created>1714565948536</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1714565948536</updated>
+    </task>
+    <task id="LOCAL-00043" summary="feat(Blog): 정적 팩토리 메서드 생성">
+      <option name="closed" value="true" />
+      <created>1714565976103</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1714565976103</updated>
+    </task>
+    <task id="LOCAL-00044" summary="feat(ErrorResponse): 에러 응답 DTO 생성">
+      <option name="closed" value="true" />
+      <created>1714567036493</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1714567036493</updated>
+    </task>
+    <task id="LOCAL-00045" summary="feat(GlobalExceptionHandler):  전역 예외 처리를 담당하는 클래스 생성 &#10;&#10;- 예외가 발생했을 때, 예외를 잡아서 사용자에게 적절한 HTTP 응답을 반환">
+      <option name="closed" value="true" />
+      <created>1714567299591</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1714567299591</updated>
+    </task>
+    <task id="LOCAL-00046" summary="feat(BusinessException): 커스텀 예외 클래스 생성">
+      <option name="closed" value="true" />
+      <created>1714567479069</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1714567479069</updated>
+    </task>
+    <task id="LOCAL-00047" summary="refactor(JpaAuditingConfig): 폴더 경로 이동">
+      <option name="closed" value="true" />
+      <created>1714567593205</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1714567593205</updated>
+    </task>
+    <task id="LOCAL-00048" summary="feat(ErrorMessage): 에러 메시지 enum으로 관리&#10;&#10;- service에 예외 발생 시 매번 문자열을 직접 작성하는 것이 아닌, enum으로 관리하여 생산성 높이기">
+      <option name="closed" value="true" />
+      <created>1714567758519</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1714567758519</updated>
+    </task>
+    <task id="LOCAL-00049" summary="chore(BusinessException): import문 수정">
+      <option name="closed" value="true" />
+      <created>1714568356943</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1714568356943</updated>
+    </task>
+    <task id="LOCAL-00050" summary="chore(ErrorResponse): import문 추가">
+      <option name="closed" value="true" />
+      <created>1714568383237</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1714568383238</updated>
+    </task>
+    <task id="LOCAL-00051" summary="fix(MemberService): 예외 클래스 수정">
+      <option name="closed" value="true" />
+      <created>1714568477367</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1714568477367</updated>
+    </task>
+    <task id="LOCAL-00052" summary="feat(NotFoundException): 자원이 찾아지지 않는 에러 클래스 생성">
+      <option name="closed" value="true" />
+      <created>1714568521132</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1714568521132</updated>
+    </task>
+    <task id="LOCAL-00053" summary="refactor(GlobalExceptionHandler): 커스텀한 NotFoundException으로 리팩토링">
+      <option name="closed" value="true" />
+      <created>1714569389193</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1714569389193</updated>
+    </task>
+    <task id="LOCAL-00054" summary="feat(Blog): title 업데이트 메서드 추가">
+      <option name="closed" value="true" />
+      <created>1714570077400</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1714570077400</updated>
+    </task>
+    <task id="LOCAL-00055" summary="feat(BlogController): title 업데이트 하는 PATCH API 메서드 추가">
+      <option name="closed" value="true" />
+      <created>1714570106389</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1714570106389</updated>
+    </task>
+    <task id="LOCAL-00056" summary="feat(BlogService): title 업데이트 비즈니스 로직을 처리하는 메서드 추가">
+      <option name="closed" value="true" />
+      <created>1714570133984</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1714570133984</updated>
+    </task>
+    <task id="LOCAL-00057" summary="refactor: Spring Boot Validation 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1714570161263</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1714570161263</updated>
+    </task>
+    <task id="LOCAL-00058" summary="feat(BlogTitleUpdateRequest): 타이틀 업데이트 요청 DTO 생성">
+      <option name="closed" value="true" />
+      <created>1714570198668</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1714570198668</updated>
+    </task>
+    <task id="LOCAL-00059" summary="refactor(ErrorMessage): 타이틀 오류 메세지 상수 추가">
+      <option name="closed" value="true" />
+      <created>1714570388182</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1714570388182</updated>
+    </task>
+    <task id="LOCAL-00060" summary="refactor(BlogController): @Valid 어노테이션 추가&#10;&#10;- 제목이 최대 글자 수(5자)를 넘으면 400 Bad Request 반환">
+      <option name="closed" value="true" />
+      <created>1714571035715</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1714571035715</updated>
+    </task>
+    <task id="LOCAL-00061" summary="refactor(BlogTitleUpdateRequest): Validation 추가(@Size)">
+      <option name="closed" value="true" />
+      <created>1714571073461</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1714571073461</updated>
+    </task>
+    <task id="LOCAL-00062" summary="refactor(ErrorResponse): of 메서드 오버로딩">
+      <option name="closed" value="true" />
+      <created>1714571098360</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1714571098360</updated>
+    </task>
+    <task id="LOCAL-00063" summary="refactor(GlobalExceptionHandler): 최대 글자 수 5를 넘을 시 ErrorResponse 클래스로 리턴하는 코드 추가">
+      <option name="closed" value="true" />
+      <created>1714571184063</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1714571184063</updated>
+    </task>
+    <task id="LOCAL-00064" summary="test(BlogControllerTest): BlogController 테스트 코드 추가">
+      <option name="closed" value="true" />
+      <created>1714571261552</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1714571261552</updated>
+    </task>
+    <task id="LOCAL-00065" summary="refactor(BlogService): 동일한 로직 메서드로 분리">
+      <option name="closed" value="true" />
+      <created>1714746379400</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1714746379401</updated>
+    </task>
+    <task id="LOCAL-00066" summary="refactor(PostService): 메서드로 변환하기">
+      <option name="closed" value="true" />
+      <created>1714746437858</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1714746437858</updated>
+    </task>
+    <task id="LOCAL-00067" summary="refactor(PostFindDto): 직렬화 문제 해결 및 성능 향상을 위해 PostFindDto 구조 변경&#10;&#10;- PostFindDto에서 Blog와 Member 객체 대신 blogId와 memberId 필드로 변경.&#10;- Hibernate 관련 직렬화 문제 및 불필요한 데이터 로딩을 방지하기 위해 DTO에서 ID만 전송하도록 수정.">
+      <option name="closed" value="true" />
+      <created>1714746568947</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1714746568947</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(Blog): 정적 팩토리 메서드 생성" />
+    <MESSAGE value="feat(ErrorResponse): 에러 응답 DTO 생성" />
+    <MESSAGE value="feat(GlobalExceptionHandler):  전역 예외 처리를 담당하는 클래스 생성 &#10;&#10;- 예외가 발생했을 때, 예외를 잡아서 사용자에게 적절한 HTTP 응답을 반환" />
+    <MESSAGE value="feat(BusinessException): 커스텀 예외 클래스 생성" />
+    <MESSAGE value="refactor(JpaAuditingConfig): 폴더 경로 이동" />
+    <MESSAGE value="feat(ErrorMessage): 에러 메시지 enum으로 관리&#10;&#10;- service에 예외 발생 시 매번 문자열을 직접 작성하는 것이 아닌, enum으로 관리하여 생산성 높이기" />
+    <MESSAGE value="chore(BusinessException): import문 수정" />
+    <MESSAGE value="chore(ErrorResponse): import문 추가" />
+    <MESSAGE value="fix(MemberService): 예외 클래스 수정" />
+    <MESSAGE value="feat(NotFoundException): 자원이 찾아지지 않는 에러 클래스 생성" />
+    <MESSAGE value="refactor(GlobalExceptionHandler): 커스텀한 NotFoundException으로 리팩토링" />
+    <MESSAGE value="feat(Blog): title 업데이트 메서드 추가" />
+    <MESSAGE value="feat(BlogController): title 업데이트 하는 PATCH API 메서드 추가" />
+    <MESSAGE value="feat(BlogService): title 업데이트 비즈니스 로직을 처리하는 메서드 추가" />
+    <MESSAGE value="refactor: Spring Boot Validation 의존성 추가" />
+    <MESSAGE value="feat(BlogTitleUpdateRequest): 타이틀 업데이트 요청 DTO 생성" />
+    <MESSAGE value="refactor(ErrorMessage): 타이틀 오류 메세지 상수 추가" />
+    <MESSAGE value="refactor(BlogController): @Valid 어노테이션 추가&#10;&#10;- 제목이 최대 글자 수(5자)를 넘으면 400 Bad Request 반환" />
+    <MESSAGE value="refactor(BlogTitleUpdateRequest): Validation 추가(@Size)" />
+    <MESSAGE value="refactor(ErrorResponse): of 메서드 오버로딩" />
+    <MESSAGE value="refactor(GlobalExceptionHandler): 최대 글자 수 5를 넘을 시 ErrorResponse 클래스로 리턴하는 코드 추가" />
+    <MESSAGE value="test(BlogControllerTest): BlogController 테스트 코드 추가" />
+    <MESSAGE value="refactor(BlogService): 동일한 로직 메서드로 분리" />
+    <MESSAGE value="refactor(PostService): 메서드로 변환하기" />
+    <MESSAGE value="refactor(PostFindDto): 직렬화 문제 해결 및 성능 향상을 위해 PostFindDto 구조 변경&#10;&#10;- PostFindDto에서 Blog와 Member 객체 대신 blogId와 memberId 필드로 변경.&#10;- Hibernate 관련 직렬화 문제 및 불필요한 데이터 로딩을 방지하기 위해 DTO에서 ID만 전송하도록 수정." />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(PostFindDto): 직렬화 문제 해결 및 성능 향상을 위해 PostFindDto 구조 변경&#10;&#10;- PostFindDto에서 Blog와 Member 객체 대신 blogId와 memberId 필드로 변경.&#10;- Hibernate 관련 직렬화 문제 및 불필요한 데이터 로딩을 방지하기 위해 DTO에서 ID만 전송하도록 수정." />
+  </component>
+</project>
