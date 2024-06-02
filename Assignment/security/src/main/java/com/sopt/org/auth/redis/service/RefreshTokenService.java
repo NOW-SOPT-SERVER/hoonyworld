@@ -3,6 +3,7 @@ package com.sopt.org.auth.redis.service;
 import com.sopt.org.auth.UserAuthentication;
 import com.sopt.org.auth.redis.domain.Token;
 import com.sopt.org.auth.redis.repository.RedisTokenRepository;
+import com.sopt.org.auth.redis.service.dto.TokenRefreshResponse;
 import com.sopt.org.common.jwt.JwtTokenProvider;
 import com.sopt.org.exception.NotFoundException;
 import com.sopt.org.exception.message.ErrorMessage;
@@ -24,7 +25,8 @@ public class RefreshTokenService {
         redisTokenRepository.save(Token.of(userId, refreshToken));
     }
 
-    public String reissueAccessToken(String refreshToken) {
+    @Transactional
+    public TokenRefreshResponse reissueTokens(String refreshToken) {
         Token token = redisTokenRepository.findByRefreshToken(refreshToken).orElseThrow(
                 () -> new NotFoundException(ErrorMessage.REFRESH_TOKEN_NOT_FOUND));
 
@@ -32,7 +34,12 @@ public class RefreshTokenService {
         Authentication authentication = UserAuthentication.createUserAuthentication(userId);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return jwtTokenProvider.issueAccessToken(authentication);
+        String newAccessToken = jwtTokenProvider.issueAccessToken(authentication);
+        String newRefreshToken = jwtTokenProvider.issueRefreshToken(authentication);
+
+        saveRefreshToken(userId, newRefreshToken);
+
+        return TokenRefreshResponse.of(newAccessToken, newRefreshToken);
     }
 
 //    @Transactional
