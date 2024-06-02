@@ -29,8 +29,7 @@ public class AuthenticationController {
 
     @PostMapping("/refresh-token")
     public ResponseEntity<TokenRefreshResponse> refreshToken(@RequestBody TokenRefreshRequest tokenRefreshRequest) {
-        String newRefreshToken = tokenRefreshRequest.newRefreshToken();
-        String newAccessToken = refreshTokenService.reissueAccessToken(newRefreshToken);
-        return ResponseEntity.ok(TokenRefreshResponse.of(newAccessToken, newRefreshToken));
+        TokenRefreshResponse tokenRefreshResponse = refreshTokenService.reissueTokens(tokenRefreshRequest.refreshToken());
+        return ResponseEntity.ok(TokenRefreshResponse.of(tokenRefreshResponse.newAccessToken(), tokenRefreshResponse.newRefreshToken()));
     }
 }
