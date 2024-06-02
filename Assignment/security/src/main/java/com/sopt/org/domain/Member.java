@@ -20,19 +20,23 @@ public class Member {
 
     private int age;
 
+    private String password;
 
-    public static Member create(String name, Part part, int age) {
+
+    public static Member create(String name, Part part, int age, String password) {
         return Member.builder()
                 .name(name)
                 .part(part)
                 .age(age)
+                .password(password)
                 .build();
     }
 
     @Builder
-    public Member(String name, Part part, int age) {
+    public Member(String name, Part part, int age, String password) {
         this.name = name;
         this.part = part;
         this.age = age;
+        this.password = password;
     }
 }
