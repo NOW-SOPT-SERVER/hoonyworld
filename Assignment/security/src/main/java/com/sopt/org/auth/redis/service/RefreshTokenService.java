@@ -39,7 +39,7 @@ public class RefreshTokenService {
 
         saveRefreshToken(userId, newRefreshToken);
 
-        return TokenRefreshResponse.of(newAccessToken, newRefreshToken);
+        return new TokenRefreshResponse(newAccessToken, newRefreshToken);
     }
 
 //    @Transactional
