@@ -12,6 +12,7 @@ import com.sopt.org.service.dto.UserJoinResponse;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -20,6 +21,7 @@ import java.util.List;
 public class MemberService {
     private final MemberRepository memberRepository;
     private final JwtTokenProvider jwtTokenProvider;
+    private final PasswordEncoder passwordEncoder;
 
 //    @Transactional
 //    public String createMember(MemberCreateDto memberCreateDto) {
@@ -32,7 +34,7 @@ public class MemberService {
             MemberCreateDto memberCreate
     ) {
         Member member = memberRepository.save(
-                Member.create(memberCreate.name(), memberCreate.part(), memberCreate.age())
+                Member.create(memberCreate.name(), memberCreate.part(), memberCreate.age(),passwordEncoder.encode(memberCreate.password()))
         );
         Long memberId = member.getId();
         String accessToken = jwtTokenProvider.issueAccessToken(
