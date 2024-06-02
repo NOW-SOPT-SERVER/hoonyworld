@@ -22,7 +22,7 @@ public class MemberController {
 //        return ResponseEntity.created(URI.create(memberService.createMember(memberCreateDto))).build();
 //    }
 
-    @PostMapping
+    @PostMapping("/member")
     public ResponseEntity<UserJoinResponse> postMember(
             @RequestBody MemberCreateDto memberCreateDto
     ) {
