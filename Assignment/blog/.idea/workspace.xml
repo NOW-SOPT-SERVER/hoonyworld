@@ -5,33 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83524f02-554b-4f17-a564-06f6b454f5dc" name="변경" comment="refactor(PostFindDto): 직렬화 문제 해결 및 성능 향상을 위해 PostFindDto 구조 변경&#10;&#10;- PostFindDto에서 Blog와 Member 객체 대신 blogId와 memberId 필드로 변경.&#10;- Hibernate 관련 직렬화 문제 및 불필요한 데이터 로딩을 방지하기 위해 DTO에서 ID만 전송하도록 수정.">
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/0/1/0151ab40d91899cd8fc105976952e538943325cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/0/d/0d9e24cb34a775310103686877c7ab5f078ac457" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/1/1/11c59770077c07b36aacf404ad9712031c6b462f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/1/9/19b98f31d81b6d9b10f83fb589a9646f13d7d461" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/2/52004ab40e814040a611c5984ea335b065800300" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/5/a/5a56e7e91204e774b427b2deed280bfc2720d0aa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/6/4/64c33c78627b5374ff37f5ab21c0fd9dfc8c1fc3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/7/8/78395a136892c45061d9a890d9fb59a151f39270" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/8/7/87e7ce4097260dab8c4e3f66996c384be36b5d55" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/8/8/88e8af23c2dd6896f3387b44f60642e114781c77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/c/5/c539df13dcc7edafa0e2ec14517e5dff7c1fda24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/e/4/e436a4032b4a56c379ada960d766eec78a58e5c6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/0/1/0151ab40d91899cd8fc105976952e538943325cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/0/d/0d9e24cb34a775310103686877c7ab5f078ac457" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/1/1/11c59770077c07b36aacf404ad9712031c6b462f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/1/9/19b98f31d81b6d9b10f83fb589a9646f13d7d461" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/5/2/52004ab40e814040a611c5984ea335b065800300" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/5/a/5a56e7e91204e774b427b2deed280bfc2720d0aa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/6/4/64c33c78627b5374ff37f5ab21c0fd9dfc8c1fc3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/7/8/78395a136892c45061d9a890d9fb59a151f39270" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/8/7/87e7ce4097260dab8c4e3f66996c384be36b5d55" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/8/8/88e8af23c2dd6896f3387b44f60642e114781c77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/c/5/c539df13dcc7edafa0e2ec14517e5dff7c1fda24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/e/4/e436a4032b4a56c379ada960d766eec78a58e5c6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Seminar/week6-1/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Seminar/week6-1/.idea/compiler.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,44 +99,44 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.'com.sopt.org.settings'에 있는 테스트.executor": "Run",
-    "Gradle.'week2-1.test'에 있는 테스트.executor": "Run",
-    "Gradle.BlogControllerTest.executor": "Run",
-    "Gradle.MemberControllerTest.executor": "Run",
-    "Gradle.blog 빌드.executor": "Run",
-    "Gradle.week2-1 빌드.executor": "Run",
-    "Gradle.week3-1 빌드.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "Spring Boot.Application.executor": "Run",
-    "Spring Boot.Week21Application.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/donghoon/IdeaProjects/sopt/hoonyworld/Assignment/blog",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDK",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.'com.sopt.org.settings'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.'week2-1.test'에 있는 테스트.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.BlogControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemberControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.blog 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.week2-1 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.week3-1 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Week21Application.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/donghoon/IdeaProjects/sopt/hoonyworld/Assignment/blog&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDK&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="BlogControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -289,8 +264,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>
@@ -320,6 +295,7 @@
       <workItem from="1714733359459" duration="2755000" />
       <workItem from="1714736128038" duration="10243000" />
       <workItem from="1714915789064" duration="1057000" />
+      <workItem from="1717314973212" duration="19000" />
     </task>
     <task id="LOCAL-00019" summary="feat(MemberController): 특정 회원 ID를 이용해 해당 회원을 삭제하는 DELETE 요청 구현">
       <option name="closed" value="true" />

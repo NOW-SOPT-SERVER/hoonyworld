@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.sopt.org.controller.MemberControllerTest" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="donghoon-MacBookPro.local" time="0.0">
+  <properties/>
+  <system-out><![CDATA[2024-04-17T18:21:46.159+09:00  INFO 82917 --- [week2-1] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.sopt.org.controller.MemberControllerTest]: MemberControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-04-17T18:21:46.165+09:00  INFO 82917 --- [week2-1] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.sopt.org.Application for test class com.sopt.org.controller.MemberControllerTest
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
