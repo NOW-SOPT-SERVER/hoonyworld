@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.sopt.org.ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-17T09:21:45" hostname="donghoon-MacBookPro.local" time="0.313">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.sopt.org.ApplicationTests" time="0.313"/>
+  <system-out><![CDATA[18:21:44.039 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.sopt.org.ApplicationTests]: ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:21:44.084 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.sopt.org.Application for test class com.sopt.org.ApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2024-04-17T18:21:44.254+09:00  INFO 82917 --- [week2-1] [    Test worker] com.sopt.org.ApplicationTests            : Starting ApplicationTests using Java 17.0.10 with PID 82917 (started by donghoon in /Users/donghoon/IdeaProjects/sopt/hoonyworld/Seminar/week2-1)
+2024-04-17T18:21:44.255+09:00  INFO 82917 --- [week2-1] [    Test worker] com.sopt.org.ApplicationTests            : No active profile set, falling back to 1 default profile: "default"
+2024-04-17T18:21:44.598+09:00  INFO 82917 --- [week2-1] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-17T18:21:44.621+09:00  INFO 82917 --- [week2-1] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 1 JPA repository interface.
+2024-04-17T18:21:44.793+09:00  INFO 82917 --- [week2-1] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-17T18:21:44.828+09:00  INFO 82917 --- [week2-1] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-17T18:21:44.843+09:00  INFO 82917 --- [week2-1] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-17T18:21:44.939+09:00  INFO 82917 --- [week2-1] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-17T18:21:44.951+09:00  INFO 82917 --- [week2-1] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-17T18:21:45.062+09:00  INFO 82917 --- [week2-1] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:~/sopt user=SA
+2024-04-17T18:21:45.063+09:00  INFO 82917 --- [week2-1] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-17T18:21:45.432+09:00  INFO 82917 --- [week2-1] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-17T18:21:45.465+09:00  INFO 82917 --- [week2-1] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-17T18:21:45.649+09:00  WARN 82917 --- [week2-1] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-17T18:21:45.804+09:00  INFO 82917 --- [week2-1] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/sopt'
+2024-04-17T18:21:45.836+09:00  INFO 82917 --- [week2-1] [    Test worker] com.sopt.org.ApplicationTests            : Started ApplicationTests in 1.69 seconds (process running for 2.177)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
